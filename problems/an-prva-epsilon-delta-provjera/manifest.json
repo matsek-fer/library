@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/an-prva-epsilon-delta-provjera",
+  "title": "Prva epsilon-delta provjera",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["epsilon-delta-continuity"],
+  "requires": ["limits-of-functions"],
+  "difficulty": 1
+}

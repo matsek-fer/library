@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "proof",
+  "id": "proof/ga-lagrange-particija",
+  "title": "Lagrangeov teorem: dokaz preko particije na kosete",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["lagrange"],
+  "requires": ["subgroups", "cosets", "index"],
+  "difficulty": 1
+}

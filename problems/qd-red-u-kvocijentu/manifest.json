@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/qd-red-u-kvocijentu",
+  "title": "Redovi elemenata u kvocijentu grupe Z36",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["quotient-groups"],
+  "requires": ["cosets", "normal-subgroups", "cyclic-groups"],
+  "difficulty": 2
+}

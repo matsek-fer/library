@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/la-polinomna-jednadzba",
+  "title": "Polinomna jednadžba s derivacijom",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["rank-nullity"],
+  "requires": ["vector-spaces", "linear-maps"],
+  "difficulty": 3
+}

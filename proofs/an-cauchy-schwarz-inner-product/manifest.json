@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "proof",
+  "id": "proof/an-cauchy-schwarz-inner-product",
+  "title": "Cauchy-Schwarz inequality in an inner product space via orthogonal projection",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["cauchy-schwarz"],
+  "requires": ["inner-product-spaces"],
+  "difficulty": 3
+}

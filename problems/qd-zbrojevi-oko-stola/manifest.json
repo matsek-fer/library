@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/qd-zbrojevi-oko-stola",
+  "title": "Zbrojevi oko okruglog stola",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["pigeonhole"],
+  "requires": ["modular-arithmetic"],
+  "difficulty": 3
+}

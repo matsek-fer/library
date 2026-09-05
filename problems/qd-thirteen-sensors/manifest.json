@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/qd-thirteen-sensors",
+  "title": "Thirteen sensors in a workshop",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["pigeonhole"],
+  "requires": ["sets"],
+  "difficulty": 2
+}

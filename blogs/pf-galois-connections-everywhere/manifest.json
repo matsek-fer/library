@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "blog",
+  "id": "blog/pf-galois-connections-everywhere",
+  "title": "Galois connections beyond Galois theory",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["galois-connections", "closure-operators", "adjoint-functors"],
+  "requires": ["partial-orders", "subgroups", "categories-functors"],
+  "difficulty": 3
+}
