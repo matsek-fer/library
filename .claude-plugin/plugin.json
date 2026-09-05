@@ -1,0 +1,10 @@
+{
+  "name": "problemset",
+  "version": "0.1.0",
+  "description": "Fine-grained retrieval over the MatSek community library: problems, proofs and blogs matched to what you actually asked — difficulty ladders, prerequisite build-ups, honest gaps.",
+  "author": {
+    "name": "Matematička sekcija FER",
+    "url": "https://github.com/matsek-fer"
+  },
+  "skills": ["./skills/problemset"]
+}

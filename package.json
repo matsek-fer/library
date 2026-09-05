@@ -1,0 +1,20 @@
+{
+  "name": "@matsek/library",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MatSek community library: build machinery for the static site, llms-full.txt and the search index",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check-math": "node scripts/check-math.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.2.0",
+    "js-yaml": "^4.1.0",
+    "katex": "^0.16.11",
+    "marked": "^14.1.0"
+  }
+}

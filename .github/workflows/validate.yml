@@ -1,0 +1,55 @@
+# PR gate: every bundle validates against the spec, every LaTeX segment
+# renders, and the site builds. SKIP_EMBED=1 keeps PR CI independent of
+# Hugging Face — vectors are rebuilt on merge (build.yml), not here.
+name: validate
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: matsek-fer/spec
+          path: spec-checkout
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator
+        run: npm ci
+        working-directory: spec-checkout/validator
+
+      - name: Install build deps
+        run: npm ci
+
+      - name: Validate concept registry
+        run: node spec-checkout/validator/bin/matsek-validate.js --registry-only concepts/concepts.yaml
+
+      - name: Validate bundles
+        # Unmatched globs stay literal in bash; the -d test skips them, so an
+        # empty library passes instead of erroring on "problems/*/".
+        run: |
+          set -e
+          found=0
+          for dir in problems/*/ proofs/*/ blogs/*/; do
+            [ -d "$dir" ] || continue
+            found=1
+            echo "::group::$dir"
+            node spec-checkout/validator/bin/matsek-validate.js "$dir" --concepts concepts/concepts.yaml
+            echo "::endgroup::"
+          done
+          [ "$found" = "1" ] || echo "No bundles yet - nothing to validate."
+
+      - name: LaTeX renders
+        run: node scripts/check-math.mjs
+
+      - name: Site builds (render preview, no embedding)
+        run: node scripts/build.mjs
+        env:
+          SKIP_EMBED: "1"

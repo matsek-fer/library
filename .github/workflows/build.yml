@@ -1,0 +1,74 @@
+# Merge-to-main pipeline: revalidate, build everything including the
+# embedding index, publish dist/ to GitHub Pages. Triggered on push, never
+# cron (DECISIONS.md D-005: scheduled workflows auto-disable when quiet).
+name: build
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: matsek-fer/spec
+          path: spec-checkout
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install validator
+        run: npm ci
+        working-directory: spec-checkout/validator
+
+      - name: Install build deps
+        run: npm ci
+
+      - name: Validate concept registry
+        run: node spec-checkout/validator/bin/matsek-validate.js --registry-only concepts/concepts.yaml
+
+      - name: Validate bundles
+        run: |
+          set -e
+          for dir in problems/*/ proofs/*/ blogs/*/; do
+            [ -d "$dir" ] || continue
+            node spec-checkout/validator/bin/matsek-validate.js "$dir" --concepts concepts/concepts.yaml
+          done
+
+      - name: LaTeX renders
+        run: node scripts/check-math.mjs
+
+      - name: Cache embedding model
+        uses: actions/cache@v4
+        with:
+          path: .model-cache
+          key: hf-Xenova-multilingual-e5-small-q8
+
+      - name: Build site, corpus and index
+        run: node scripts/build.mjs
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
