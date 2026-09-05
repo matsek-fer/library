@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/sc-central-binomial-threshold",
+  "title": "The central binomial threshold",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["series-convergence", "comparison-test"],
+  "requires": ["ratio-root-tests"],
+  "difficulty": 5
+}

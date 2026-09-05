@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/an-ravnina-bez-tocke",
+  "title": "Ravnina bez točke ostaje u jednom komadu",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["connectedness"],
+  "requires": ["epsilon-delta-continuity"],
+  "difficulty": 3
+}

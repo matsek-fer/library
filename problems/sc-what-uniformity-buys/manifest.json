@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/sc-what-uniformity-buys",
+  "title": "What uniformity buys",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-05",
+  "teaches": ["uniform-convergence"],
+  "requires": ["pointwise-convergence", "epsilon-delta-continuity", "compactness"],
+  "difficulty": 4
+}

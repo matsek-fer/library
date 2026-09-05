@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "blog",
+  "id": "blog/pf-entropy-without-measure",
+  "title": "Entropy without measure theory",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["entropy", "expectation"],
+  "requires": ["probability-basics", "random-variables"],
+  "difficulty": 2
+}

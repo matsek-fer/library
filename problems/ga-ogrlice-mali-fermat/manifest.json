@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/ga-ogrlice-mali-fermat",
+  "title": "Ogrlice, orbite i mali Fermatov teorem",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["orbits-stabilizers", "modular-arithmetic"],
+  "requires": ["group-actions", "cyclic-groups", "lagrange"],
+  "difficulty": 3
+}

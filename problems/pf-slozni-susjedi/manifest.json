@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/pf-slozni-susjedi",
+  "title": "Složni susjedi za okruglim stolom",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["linearity-of-expectation"],
+  "requires": ["probability-basics", "random-variables", "expectation"],
+  "difficulty": 2
+}

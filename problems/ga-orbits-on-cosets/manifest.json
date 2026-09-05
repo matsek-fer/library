@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/ga-orbits-on-cosets",
+  "title": "Orbits of one subgroup on the cosets of another",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["orbit-stabilizer-theorem", "action-on-cosets"],
+  "requires": ["orbits-stabilizers", "lagrange", "index"],
+  "difficulty": 4
+}

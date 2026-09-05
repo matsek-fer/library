@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/sc-potencije-na-segmentu",
+  "title": "Potencije na segmentu",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-05",
+  "teaches": ["pointwise-convergence", "uniform-convergence"],
+  "requires": ["sequence-limits"],
+  "difficulty": 1
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/qd-centar-diedarske",
+  "title": "Kvocijent diedarske grupe po njezinu središtu",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["quotient-groups", "normal-subgroups"],
+  "requires": ["groups", "cosets", "conjugation"],
+  "difficulty": 3
+}

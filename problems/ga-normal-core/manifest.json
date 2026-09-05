@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/ga-normal-core",
+  "title": "The normal core and subgroups of smallest prime index",
+  "language": "en",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-04",
+  "teaches": ["action-on-cosets", "kernels", "normal-subgroups"],
+  "requires": ["group-homomorphisms", "permutation-groups", "orbit-stabilizer-theorem", "lagrange"],
+  "difficulty": 5
+}
