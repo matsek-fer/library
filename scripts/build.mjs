@@ -19,6 +19,16 @@ const MODEL = "Xenova/multilingual-e5-small";
 const DIMS = 384;
 
 const bundles = discoverBundles(root);
+
+// Experiences are feedback about the tools, not learning content: they are
+// counted for the index page's note but never listed, embedded, or written
+// into llms-full.txt (discoverBundles never walks experiences/).
+const experiencesDir = path.join(root, "experiences");
+const experienceCount = fs.existsSync(experiencesDir)
+  ? fs.readdirSync(experiencesDir, { withFileTypes: true })
+      .filter((e) => e.isDirectory() && fs.existsSync(path.join(experiencesDir, e.name, "experience.md")))
+      .length
+  : 0;
 const conceptsPath = path.join(root, "concepts", "concepts.yaml");
 const conceptsRaw = fs.existsSync(conceptsPath) ? fs.readFileSync(conceptsPath, "utf8") : "";
 const concepts = conceptsRaw ? yaml.load(conceptsRaw) : [];
@@ -110,6 +120,8 @@ details.solution summary { cursor:pointer; font-weight:bold; }
 .checkpoint { margin:2rem 0; border-left:3px solid var(--accent); padding:.2rem 1rem;
   background:var(--card); }
 .checkpoint ol { margin:.4rem 0; }
+.tutor-cta { margin:2.5rem 0 0; border:1px solid var(--accent); border-radius:.5rem;
+  padding:.6rem 1rem; background:var(--card); }
 pre { background:var(--card); padding:.8rem 1rem; overflow-x:auto; border-radius:.4rem; }
 code { font-size:.9em; }
 img { max-width:100%; }
@@ -153,9 +165,7 @@ function metaLine(m) {
 
 // The static site cannot run a checkpoint, so it degrades per the spec:
 // question, visible options (correct one unmarked), and a re-read link.
-function degradedCheckpoints(frontmatter) {
-  let fm;
-  try { fm = yaml.load(frontmatter); } catch { return ""; }
+function degradedCheckpoints(fm) {
   const cps = fm?.checkpoints;
   if (!Array.isArray(cps) || cps.length === 0) return "";
   const blocks = cps.map((cp) => {
@@ -177,6 +187,38 @@ function stripLeadingH1(html) {
   return html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\n?/, "");
 }
 
+// x_forest (the blog-writer forest-readiness convention, see
+// blog-writer/docs/forest-readiness.md) renders as nothing in v1 — except a
+// data-taxon attribute stamped on each tagged section heading, so future
+// CSS/JS can pick sections up without a site re-render.
+function applyTaxa(html, fm) {
+  const xf = fm?.x_forest;
+  if (!xf || typeof xf !== "object") return html;
+  for (const [anchor, entry] of Object.entries(xf)) {
+    const taxon = entry?.taxon;
+    if (typeof taxon !== "string") continue;
+    // Anchors are kebab-case by spec; stripping anything else keeps the
+    // string safe to splice into a RegExp.
+    const id = String(anchor).replace(/^#/, "").replace(/[^a-z0-9-]/g, "");
+    html = html.replace(
+      new RegExp(`(<h[1-6] id="${id}")>`),
+      `$1 data-taxon="${esc(taxon)}">`,
+    );
+  }
+  return html;
+}
+
+// "Nastavi u tutoru": a blog bundle may ship tutor-stub.json, a minimal
+// AI_instructor session state that starts a tutor probe exactly where the
+// blog left the reader. The stub is copied beside the page; a blog without
+// one simply renders no box.
+const TUTOR_CTA = `<div class="tutor-cta">
+<p><strong>Nastavi u tutoru</strong> — preuzmi
+<a href="tutor-stub.json" download>tutor-stub.json</a>, spremi ga kao
+<code>sessions/&lt;ime-bloga&gt;/state.json</code> u svom tutor vaultu i
+pokreni <code>/tutor</code>.</p>
+</div>`;
+
 function bundleBody(b) {
   const m = b.manifest;
   const read = (name) => {
@@ -196,8 +238,13 @@ function bundleBody(b) {
     if (proof) body += `<details class="solution"><summary>Dokaz</summary>\n${stripLeadingH1(renderMarkdown(proof))}</details>`;
   } else {
     const { frontmatter, body: md } = splitFrontmatter(read("blog.md") ?? "");
-    body += stripLeadingH1(renderMarkdown(md));
-    if (frontmatter) body += degradedCheckpoints(frontmatter);
+    // The validator gates frontmatter shape before us; a parse failure here
+    // just means the page renders without hooks, not a broken build.
+    let fm = null;
+    try { fm = frontmatter ? yaml.load(frontmatter) : null; } catch { fm = null; }
+    body += applyTaxa(stripLeadingH1(renderMarkdown(md)), fm);
+    body += degradedCheckpoints(fm);
+    if (fs.existsSync(path.join(b.dir, "tutor-stub.json"))) body += TUTOR_CTA;
   }
   return body;
 }
@@ -211,6 +258,8 @@ for (const b of bundles) {
   );
   const assets = path.join(b.dir, "assets");
   if (fs.existsSync(assets)) fs.cpSync(assets, path.join(outDir, "assets"), { recursive: true });
+  const stub = path.join(b.dir, "tutor-stub.json");
+  if (fs.existsSync(stub)) fs.cpSync(stub, path.join(outDir, "tutor-stub.json"));
 }
 
 /* ---------------- index page ---------------- */
@@ -227,11 +276,23 @@ const groups = Object.keys(TYPE_DIRS).map((type) => {
   return `<h2 id="${TYPE_DIRS[type]}">${GROUP_LABEL_HR[type]}</h2>\n<ul class="bundles">\n${lis.join("\n")}\n</ul>`;
 }).filter(Boolean);
 
+// Croatian number agreement for the note: 1 iskustvo zaprimljeno,
+// 2-4 iskustva zaprimljena, 5+ iskustava zaprimljeno (11-14 count as 5+).
+function experienceNote(n) {
+  if (n === 0) return "";
+  const mod10 = n % 10, mod100 = n % 100;
+  const paucal = mod10 >= 2 && mod10 <= 4 && !(mod100 >= 12 && mod100 <= 14);
+  const noun = mod10 === 1 && mod100 !== 11 ? "iskustvo" : paucal ? "iskustva" : "iskustava";
+  const participle = paucal ? "zaprimljena" : "zaprimljeno";
+  return `<p class="meta">${n} ${noun} ${participle}</p>`;
+}
+
 const indexBody = `<h1>MatSek knjižnica</h1>
 <p>Zadaci, dokazi i blogovi Matematičke sekcije FER-a — pišu ih članovi,
 objavljeno pod licencom CC BY 4.0. Doprinosi stižu kao pull requestovi u
 <a href="https://github.com/matsek-fer/library">matsek-fer/library</a>.</p>
 ${groups.length ? groups.join("\n") : "<p><em>Knjižnica je još prazna — prvi sadržaj je u pripremi.</em></p>"}
+${experienceNote(experienceCount)}
 <p style="margin-top:3rem" class="sub"><a href="llms-full.txt">llms-full.txt</a> ·
 <a href="index/index.json">indeks pretraživanja</a></p>`;
 

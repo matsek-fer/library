@@ -43,6 +43,22 @@ them to <https://matsek-fer.github.io/library/>.
    bez nje se ne merga. Maintainer pregledava i merga; merge automatski
    objavljuje novu verziju stranice i indeksa.
 
+## Iskustva
+
+Osim sadržaja za učenje, knjižnica prima i **iskustva** — izvještaje
+članova o korištenju alata sekcije: što je radilo, gdje je bilo trenja,
+što bi trebalo poboljšati. Iskustvo je mapa `experiences/<kebab-slug>/` s
+jednom datotekom `experience.md` čiji YAML frontmatter nosi sve
+metapodatke (nema `manifest.json` — format je u spec-u, odjeljak
+*Experience reports*). CI ih validira kao i svaki drugi bundle.
+
+Iskustva su povratna informacija, ne gradivo: ne pojavljuju se u popisu
+na stranici, u indeksu pretraživanja ni u `llms-full.txt` — stranica
+prikazuje samo koliko ih je zaprimljeno. Javno se smije pojaviti samo
+iskustvo koje u frontmatteru ima `consent_public: true`; zadano je
+`false` i tada izvještaj služi isključivo maintainerima za poboljšanje
+alata.
+
 ## The one rule that is not negotiable
 
 **Original authorship only.** No transcribed textbook or competition

@@ -47,13 +47,13 @@ jobs:
       - name: Validate bundles
         run: |
           set -e
-          for dir in problems/*/ proofs/*/ blogs/*/; do
+          for dir in problems/*/ proofs/*/ blogs/*/ experiences/*/; do
             [ -d "$dir" ] || continue
             node spec-checkout/validator/bin/matsek-validate.js "$dir" --concepts concepts/concepts.yaml
           done
 
       - name: LaTeX renders
-        run: node scripts/check-math.mjs
+        run: node scripts/check-consent.mjs && node scripts/check-math.mjs
 
       - name: Cache embedding model
         uses: actions/cache@v4

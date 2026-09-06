@@ -37,7 +37,7 @@ jobs:
         run: |
           set -e
           found=0
-          for dir in problems/*/ proofs/*/ blogs/*/; do
+          for dir in problems/*/ proofs/*/ blogs/*/ experiences/*/; do
             [ -d "$dir" ] || continue
             found=1
             echo "::group::$dir"
@@ -47,7 +47,7 @@ jobs:
           [ "$found" = "1" ] || echo "No bundles yet - nothing to validate."
 
       - name: LaTeX renders
-        run: node scripts/check-math.mjs
+        run: node scripts/check-consent.mjs && node scripts/check-math.mjs
 
       - name: Site builds (render preview, no embedding)
         run: node scripts/build.mjs
