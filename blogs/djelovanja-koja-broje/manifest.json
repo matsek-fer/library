@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "type": "blog",
+  "id": "blog/djelovanja-koja-broje",
+  "title": "Djelovanja koja broje",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-06",
+  "teaches": ["group-actions", "orbits-stabilizers", "orbit-stabilizer-theorem"],
+  "requires": ["groups", "cosets", "lagrange"],
+  "difficulty": 3
+}
