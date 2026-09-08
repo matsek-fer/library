@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "name": "djelovanja-koja-broje",
+  "topic": "Group actions as counting tools: orbits, stabilizers, the orbit-stabilizer theorem, and orbit-counting arguments (necklace proof of Fermat's little theorem, Burnside-style averaging)",
+  "background": "Read the Croatian blog 'Djelovanja koja broje': knows the definition of a group action (both axioms, each group element acts as a bijection, action = homomorphism into Sym(X)), orbits as an equivalence-class partition and stabilizers as subgroups, the orbit-stabilizer theorem proved via the bijection between the orbit and the cosets of the stabilizer, the necklace proof that p divides a^p - a (orbit sizes 1 or p because a subgroup of a prime-order group is trivial or everything), and has seen the Burnside orbit-counting identity derived once by double counting but has not practiced it. Assumes groups, subgroups, cosets, index and Lagrange's theorem; has not seen conjugation actions, the class equation, or Sylow theory.",
+  "phase": "setup",
+  "created_at": "2026-09-06 12:00 UTC",
+  "x_stub": true
+}
