@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "type": "problem",
+  "id": "problem/ga-fiksni-koset-reda-55",
+  "title": "Fiksni koset djelovanja u grupi reda 55",
+  "language": "hr",
+  "author": "Relja Šegvić <rsegvic>",
+  "license": "CC-BY-4.0",
+  "provenance": "ai-assisted",
+  "created": "2026-09-08",
+  "teaches": [
+    "action-on-cosets"
+  ],
+  "requires": [
+    "conjugation",
+    "cosets",
+    "group-actions",
+    "index",
+    "lagrange",
+    "orbits-stabilizers"
+  ],
+  "difficulty": 3,
+  "x_grown_from": [
+    "exr-fiksni-koset-reda-55",
+    "prf-fiksni-koset-reda-55"
+  ]
+}
