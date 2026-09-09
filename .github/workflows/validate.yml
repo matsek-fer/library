@@ -17,6 +17,13 @@ jobs:
           repository: matsek-fer/spec
           path: spec-checkout
 
+      # The forest layer (spec D-007) is validated with the reader's own
+      # tooling — one reference validator, not a re-implementation here.
+      - uses: actions/checkout@v4
+        with:
+          repository: matsek-fer/reader
+          path: reader-checkout
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -47,7 +54,9 @@ jobs:
           [ "$found" = "1" ] || echo "No bundles yet - nothing to validate."
 
       - name: LaTeX renders
-        run: node scripts/check-consent.mjs && node scripts/check-math.mjs
+        run: npm --prefix reader-checkout ci --omit=optional >/dev/null 2>&1 || npm --prefix reader-checkout install >/dev/null 2>&1
+          node reader-checkout/scripts/validate-forest.mjs forest --concepts concepts/concepts.yaml
+          node scripts/check-consent.mjs && node scripts/check-math.mjs
 
       - name: Site builds (render preview, no embedding)
         run: node scripts/build.mjs

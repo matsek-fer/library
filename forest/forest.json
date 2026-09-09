@@ -1,0 +1,15 @@
+{
+  "schema_version": "forest-0.1",
+  "source": {
+    "title": "MatSek library forest",
+    "authors": ["Matematička sekcija FER"],
+    "year": 2026,
+    "kind": "notes",
+    "license": "CC-BY-4.0"
+  },
+  "language": "hr",
+  "created": "2026-09-09",
+  "tool": "forest-digest",
+  "tool_version": "0.3.0",
+  "derivative": false
+}

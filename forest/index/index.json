@@ -1,0 +1,1456 @@
+{
+  "schema_version": "forest-index-0.1",
+  "model": "Xenova/multilingual-e5-small",
+  "dims": 384,
+  "quantization": "int8-per-item-scale",
+  "items": [
+    {
+      "id": "exr-an-bounded-implies-compact",
+      "taxon": "exercise",
+      "title": "When every continuous function is bounded",
+      "teaches": [
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 0,
+      "scale": 0.0010520811
+    },
+    {
+      "id": "exr-an-prva-epsilon-delta-provjera",
+      "taxon": "exercise",
+      "title": "Prva epsilon-delta provjera",
+      "teaches": [
+        "epsilon-delta-continuity"
+      ],
+      "requires": [
+        "limits-of-functions"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 384,
+      "scale": 0.0011130648
+    },
+    {
+      "id": "exr-an-ravnina-bez-tocke",
+      "taxon": "exercise",
+      "title": "Ravnina bez točke ostaje u jednom komadu",
+      "teaches": [
+        "connectedness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 768,
+      "scale": 0.00094318977
+    },
+    {
+      "id": "exr-an-shrinking-map-fixed-point",
+      "taxon": "exercise",
+      "title": "A shrinking map on a compact set has a fixed point",
+      "teaches": [
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits",
+        "uniform-continuity"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 1152,
+      "scale": 0.00095952965
+    },
+    {
+      "id": "exr-an-stepenaste-aproksimacije",
+      "taxon": "exercise",
+      "title": "Jednolika neprekidnost na segmentu i stepenaste aproksimacije",
+      "teaches": [
+        "uniform-continuity",
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 1536,
+      "scale": 0.00093305733
+    },
+    {
+      "id": "exr-an-uniform-continuity-gap",
+      "taxon": "exercise",
+      "title": "One function, two domains: the uniform continuity gap",
+      "teaches": [
+        "uniform-continuity"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 1920,
+      "scale": 0.00087725389
+    },
+    {
+      "id": "exr-ga-coset-action",
+      "taxon": "exercise",
+      "title": "The left-multiplication action on cosets",
+      "teaches": [
+        "action-on-cosets",
+        "group-actions"
+      ],
+      "requires": [
+        "cosets",
+        "index",
+        "orbits-stabilizers"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 2304,
+      "scale": 0.00096798524
+    },
+    {
+      "id": "exr-ga-fiksni-koset-reda-55",
+      "taxon": "exercise",
+      "title": "Fiksni koset djelovanja u grupi reda 55",
+      "teaches": [
+        "action-on-cosets"
+      ],
+      "requires": [
+        "conjugation",
+        "cosets",
+        "group-actions",
+        "index",
+        "lagrange",
+        "orbits-stabilizers"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 2688,
+      "scale": 0.00096401514
+    },
+    {
+      "id": "exr-ga-koseti-simetrija-kvadrata",
+      "taxon": "exercise",
+      "title": "Koseti u grupi simetrija kvadrata",
+      "teaches": [
+        "cosets",
+        "index"
+      ],
+      "requires": [
+        "subgroups",
+        "permutation-groups"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 3072,
+      "scale": 0.0010981298
+    },
+    {
+      "id": "exr-ga-normal-core",
+      "taxon": "exercise",
+      "title": "The normal core and subgroups of smallest prime index",
+      "teaches": [
+        "action-on-cosets",
+        "kernels",
+        "normal-subgroups"
+      ],
+      "requires": [
+        "group-homomorphisms",
+        "permutation-groups",
+        "orbit-stabilizer-theorem",
+        "lagrange"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 3456,
+      "scale": 0.0009778992
+    },
+    {
+      "id": "exr-ga-ogrlice-mali-fermat",
+      "taxon": "exercise",
+      "title": "Ogrlice, orbite i mali Fermatov teorem",
+      "teaches": [
+        "orbits-stabilizers",
+        "modular-arithmetic"
+      ],
+      "requires": [
+        "group-actions",
+        "cyclic-groups",
+        "lagrange"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 3840,
+      "scale": 0.00097967162
+    },
+    {
+      "id": "exr-ga-orbits-on-cosets",
+      "taxon": "exercise",
+      "title": "Orbits of one subgroup on the cosets of another",
+      "teaches": [
+        "orbit-stabilizer-theorem",
+        "action-on-cosets"
+      ],
+      "requires": [
+        "orbits-stabilizers",
+        "lagrange",
+        "index"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 4224,
+      "scale": 0.0010652586
+    },
+    {
+      "id": "exr-ga-podgrupe-reda-35",
+      "taxon": "exercise",
+      "title": "Podgrupe i redovi elemenata u grupi reda 35",
+      "teaches": [
+        "lagrange"
+      ],
+      "requires": [
+        "cosets",
+        "index",
+        "cyclic-groups"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 4608,
+      "scale": 0.0011040287
+    },
+    {
+      "id": "exr-la-diagonalizable-parameter",
+      "taxon": "exercise",
+      "title": "Diagonalizability with a parameter",
+      "teaches": [
+        "diagonalization"
+      ],
+      "requires": [
+        "eigenvalues-eigenvectors"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 4992,
+      "scale": 0.0011551847
+    },
+    {
+      "id": "exr-la-dimenzija-rjesenja",
+      "taxon": "exercise",
+      "title": "Dimenzija prostora rješenja",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 5376,
+      "scale": 0.00089164583
+    },
+    {
+      "id": "exr-la-polinomna-jednadzba",
+      "taxon": "exercise",
+      "title": "Polinomna jednadžba s derivacijom",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 5760,
+      "scale": 0.0010941442
+    },
+    {
+      "id": "exr-la-prva-dijagonalizacija",
+      "taxon": "exercise",
+      "title": "Prva dijagonalizacija",
+      "teaches": [
+        "eigenvalues-eigenvectors",
+        "diagonalization"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 6144,
+      "scale": 0.00094693752
+    },
+    {
+      "id": "exr-la-symmetric-square-root",
+      "taxon": "exercise",
+      "title": "The symmetric square root",
+      "teaches": [
+        "spectral-theorem"
+      ],
+      "requires": [
+        "diagonalization",
+        "inner-product-spaces"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 6528,
+      "scale": 0.00090538851
+    },
+    {
+      "id": "exr-la-three-point-fit",
+      "taxon": "exercise",
+      "title": "Fitting a cubic through three points",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 6912,
+      "scale": 0.0010059715
+    },
+    {
+      "id": "exr-pf-kruzni-trio",
+      "taxon": "exercise",
+      "title": "Kružne trojke na turniru bez remija",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 7296,
+      "scale": 0.00089746849
+    },
+    {
+      "id": "exr-pf-pomak-za-dva",
+      "taxon": "exercise",
+      "title": "Funkcija koja raste za dva",
+      "teaches": [
+        "functional-equations"
+      ],
+      "requires": [
+        "functions",
+        "induction"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 7680,
+      "scale": 0.0011481894
+    },
+    {
+      "id": "exr-pf-slozni-susjedi",
+      "taxon": "exercise",
+      "title": "Složni susjedi za okruglim stolom",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 8064,
+      "scale": 0.00083033934
+    },
+    {
+      "id": "exr-pf-tombola-dobitnici",
+      "taxon": "exercise",
+      "title": "Koliko različitih dobitnika ima tombola?",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 8448,
+      "scale": 0.00088559402
+    },
+    {
+      "id": "exr-pf-zamjena-argumenta",
+      "taxon": "exercise",
+      "title": "Dvije jednadžbe iz jedne zamjene",
+      "teaches": [
+        "functional-equations"
+      ],
+      "requires": [
+        "functions"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 8832,
+      "scale": 0.00099982767
+    },
+    {
+      "id": "exr-qd-centar-diedarske",
+      "taxon": "exercise",
+      "title": "Kvocijent diedarske grupe po njezinu središtu",
+      "teaches": [
+        "quotient-groups",
+        "normal-subgroups"
+      ],
+      "requires": [
+        "groups",
+        "cosets",
+        "conjugation"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 9216,
+      "scale": 0.0010095959
+    },
+    {
+      "id": "exr-qd-rationals-mod-one",
+      "taxon": "exercise",
+      "title": "The rationals modulo one",
+      "teaches": [
+        "quotient-groups"
+      ],
+      "requires": [
+        "cosets",
+        "normal-subgroups",
+        "cyclic-groups",
+        "lagrange"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 9600,
+      "scale": 0.0010296909
+    },
+    {
+      "id": "exr-qd-red-u-kvocijentu",
+      "taxon": "exercise",
+      "title": "Redovi elemenata u kvocijentu grupe Z36",
+      "teaches": [
+        "quotient-groups"
+      ],
+      "requires": [
+        "cosets",
+        "normal-subgroups",
+        "cyclic-groups"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 9984,
+      "scale": 0.00091668887
+    },
+    {
+      "id": "exr-qd-thirteen-sensors",
+      "taxon": "exercise",
+      "title": "Thirteen sensors in a workshop",
+      "teaches": [
+        "pigeonhole"
+      ],
+      "requires": [
+        "sets"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 10368,
+      "scale": 0.0010179973
+    },
+    {
+      "id": "exr-qd-zbrojevi-oko-stola",
+      "taxon": "exercise",
+      "title": "Zbrojevi oko okruglog stola",
+      "teaches": [
+        "pigeonhole"
+      ],
+      "requires": [
+        "modular-arithmetic"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 10752,
+      "scale": 0.0010281188
+    },
+    {
+      "id": "exr-sc-central-binomial-threshold",
+      "taxon": "exercise",
+      "title": "The central binomial threshold",
+      "teaches": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "requires": [
+        "ratio-root-tests"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 11136,
+      "scale": 0.0010411122
+    },
+    {
+      "id": "exr-sc-logaritamske-ljestve",
+      "taxon": "exercise",
+      "title": "Logaritamske ljestve",
+      "teaches": [
+        "cauchy-condensation"
+      ],
+      "requires": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 11520,
+      "scale": 0.0009285668
+    },
+    {
+      "id": "exr-sc-potencija-protiv-faktorijele",
+      "taxon": "exercise",
+      "title": "Potencija protiv faktorijele",
+      "teaches": [
+        "ratio-root-tests"
+      ],
+      "requires": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 11904,
+      "scale": 0.001078576
+    },
+    {
+      "id": "exr-sc-potencije-na-segmentu",
+      "taxon": "exercise",
+      "title": "Potencije na segmentu",
+      "teaches": [
+        "pointwise-convergence",
+        "uniform-convergence"
+      ],
+      "requires": [
+        "sequence-limits"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 12288,
+      "scale": 0.00096790475
+    },
+    {
+      "id": "exr-sc-putujuci-brijeg",
+      "taxon": "exercise",
+      "title": "Putujući brijeg",
+      "teaches": [
+        "uniform-convergence"
+      ],
+      "requires": [
+        "pointwise-convergence",
+        "epsilon-delta-continuity"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 12672,
+      "scale": 0.00099874153
+    },
+    {
+      "id": "exr-sc-what-uniformity-buys",
+      "taxon": "exercise",
+      "title": "What uniformity buys",
+      "teaches": [
+        "uniform-convergence"
+      ],
+      "requires": [
+        "pointwise-convergence",
+        "epsilon-delta-continuity",
+        "compactness"
+      ],
+      "depends": [],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 13056,
+      "scale": 0.0010493082
+    },
+    {
+      "id": "prf-an-bounded-implies-compact",
+      "taxon": "proof",
+      "title": "Rješenje: When every continuous function is bounded",
+      "teaches": [
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [
+        "exr-an-bounded-implies-compact"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 13440,
+      "scale": 0.00095598452
+    },
+    {
+      "id": "prf-an-cauchy-schwarz-inner-product",
+      "taxon": "proof",
+      "title": "Dokaz: Cauchy-Schwarz inequality in an inner product space via orthogonal projection",
+      "teaches": [
+        "cauchy-schwarz"
+      ],
+      "requires": [
+        "inner-product-spaces"
+      ],
+      "depends": [
+        "thm-an-cauchy-schwarz-inner-product"
+      ],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 13824,
+      "scale": 0.00085103641
+    },
+    {
+      "id": "prf-an-cauchy-schwarz-rn",
+      "taxon": "proof",
+      "title": "Dokaz: Cauchy-Schwarz inequality in R^n via Lagrange's identity",
+      "teaches": [
+        "cauchy-schwarz"
+      ],
+      "requires": [
+        "vector-spaces"
+      ],
+      "depends": [
+        "thm-an-cauchy-schwarz-rn"
+      ],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 14208,
+      "scale": 0.00086950587
+    },
+    {
+      "id": "prf-an-prva-epsilon-delta-provjera",
+      "taxon": "proof",
+      "title": "Rješenje: Prva epsilon-delta provjera",
+      "teaches": [
+        "epsilon-delta-continuity"
+      ],
+      "requires": [
+        "limits-of-functions"
+      ],
+      "depends": [
+        "exr-an-prva-epsilon-delta-provjera"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 14592,
+      "scale": 0.00098356863
+    },
+    {
+      "id": "prf-an-ravnina-bez-tocke",
+      "taxon": "proof",
+      "title": "Rješenje: Ravnina bez točke ostaje u jednom komadu",
+      "teaches": [
+        "connectedness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity"
+      ],
+      "depends": [
+        "exr-an-ravnina-bez-tocke"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 14976,
+      "scale": 0.00095994383
+    },
+    {
+      "id": "prf-an-shrinking-map-fixed-point",
+      "taxon": "proof",
+      "title": "Rješenje: A shrinking map on a compact set has a fixed point",
+      "teaches": [
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits",
+        "uniform-continuity"
+      ],
+      "depends": [
+        "exr-an-shrinking-map-fixed-point"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 15360,
+      "scale": 0.0008320704
+    },
+    {
+      "id": "prf-an-stepenaste-aproksimacije",
+      "taxon": "proof",
+      "title": "Rješenje: Jednolika neprekidnost na segmentu i stepenaste aproksimacije",
+      "teaches": [
+        "uniform-continuity",
+        "compactness"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [
+        "exr-an-stepenaste-aproksimacije"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 15744,
+      "scale": 0.00091777537
+    },
+    {
+      "id": "prf-an-uniform-continuity-gap",
+      "taxon": "proof",
+      "title": "Rješenje: One function, two domains: the uniform continuity gap",
+      "teaches": [
+        "uniform-continuity"
+      ],
+      "requires": [
+        "epsilon-delta-continuity",
+        "sequence-limits"
+      ],
+      "depends": [
+        "exr-an-uniform-continuity-gap"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 16128,
+      "scale": 0.0010410984
+    },
+    {
+      "id": "prf-ga-coset-action",
+      "taxon": "proof",
+      "title": "Rješenje: The left-multiplication action on cosets",
+      "teaches": [
+        "action-on-cosets",
+        "group-actions"
+      ],
+      "requires": [
+        "cosets",
+        "index",
+        "orbits-stabilizers"
+      ],
+      "depends": [
+        "exr-ga-coset-action"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 16512,
+      "scale": 0.00098386548
+    },
+    {
+      "id": "prf-ga-fiksni-koset-reda-55",
+      "taxon": "proof",
+      "title": "Rješenje: Fiksni koset djelovanja u grupi reda 55",
+      "teaches": [
+        "action-on-cosets"
+      ],
+      "requires": [
+        "conjugation",
+        "cosets",
+        "group-actions",
+        "index",
+        "lagrange",
+        "orbits-stabilizers"
+      ],
+      "depends": [
+        "exr-ga-fiksni-koset-reda-55"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 16896,
+      "scale": 0.00093580524
+    },
+    {
+      "id": "prf-ga-koseti-simetrija-kvadrata",
+      "taxon": "proof",
+      "title": "Rješenje: Koseti u grupi simetrija kvadrata",
+      "teaches": [
+        "cosets",
+        "index"
+      ],
+      "requires": [
+        "subgroups",
+        "permutation-groups"
+      ],
+      "depends": [
+        "exr-ga-koseti-simetrija-kvadrata"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 17280,
+      "scale": 0.0010759985
+    },
+    {
+      "id": "prf-ga-lagrange-djelovanje",
+      "taxon": "proof",
+      "title": "Dokaz: Lagrange's theorem via a free group action",
+      "teaches": [
+        "lagrange",
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "group-actions",
+        "cosets"
+      ],
+      "depends": [
+        "thm-ga-lagrange-djelovanje"
+      ],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 17664,
+      "scale": 0.0009252842
+    },
+    {
+      "id": "prf-ga-lagrange-particija",
+      "taxon": "proof",
+      "title": "Dokaz: Lagrangeov teorem: dokaz preko particije na kosete",
+      "teaches": [
+        "lagrange"
+      ],
+      "requires": [
+        "subgroups",
+        "cosets",
+        "index"
+      ],
+      "depends": [
+        "thm-ga-lagrange-particija"
+      ],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 18048,
+      "scale": 0.00097968195
+    },
+    {
+      "id": "prf-ga-normal-core",
+      "taxon": "proof",
+      "title": "Rješenje: The normal core and subgroups of smallest prime index",
+      "teaches": [
+        "action-on-cosets",
+        "kernels",
+        "normal-subgroups"
+      ],
+      "requires": [
+        "group-homomorphisms",
+        "permutation-groups",
+        "orbit-stabilizer-theorem",
+        "lagrange"
+      ],
+      "depends": [
+        "exr-ga-normal-core"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 18432,
+      "scale": 0.00092724898
+    },
+    {
+      "id": "prf-ga-ogrlice-mali-fermat",
+      "taxon": "proof",
+      "title": "Rješenje: Ogrlice, orbite i mali Fermatov teorem",
+      "teaches": [
+        "orbits-stabilizers",
+        "modular-arithmetic"
+      ],
+      "requires": [
+        "group-actions",
+        "cyclic-groups",
+        "lagrange"
+      ],
+      "depends": [
+        "exr-ga-ogrlice-mali-fermat"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 18816,
+      "scale": 0.0010427639
+    },
+    {
+      "id": "prf-ga-orbits-on-cosets",
+      "taxon": "proof",
+      "title": "Rješenje: Orbits of one subgroup on the cosets of another",
+      "teaches": [
+        "orbit-stabilizer-theorem",
+        "action-on-cosets"
+      ],
+      "requires": [
+        "orbits-stabilizers",
+        "lagrange",
+        "index"
+      ],
+      "depends": [
+        "exr-ga-orbits-on-cosets"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 19200,
+      "scale": 0.0011539311
+    },
+    {
+      "id": "prf-ga-podgrupe-reda-35",
+      "taxon": "proof",
+      "title": "Rješenje: Podgrupe i redovi elemenata u grupi reda 35",
+      "teaches": [
+        "lagrange"
+      ],
+      "requires": [
+        "cosets",
+        "index",
+        "cyclic-groups"
+      ],
+      "depends": [
+        "exr-ga-podgrupe-reda-35"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 19584,
+      "scale": 0.0010405687
+    },
+    {
+      "id": "prf-la-diagonalizable-parameter",
+      "taxon": "proof",
+      "title": "Rješenje: Diagonalizability with a parameter",
+      "teaches": [
+        "diagonalization"
+      ],
+      "requires": [
+        "eigenvalues-eigenvectors"
+      ],
+      "depends": [
+        "exr-la-diagonalizable-parameter"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 19968,
+      "scale": 0.00090538511
+    },
+    {
+      "id": "prf-la-dimenzija-rjesenja",
+      "taxon": "proof",
+      "title": "Rješenje: Dimenzija prostora rješenja",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [
+        "exr-la-dimenzija-rjesenja"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 20352,
+      "scale": 0.00085632221
+    },
+    {
+      "id": "prf-la-polinomna-jednadzba",
+      "taxon": "proof",
+      "title": "Rješenje: Polinomna jednadžba s derivacijom",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [
+        "exr-la-polinomna-jednadzba"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 20736,
+      "scale": 0.00098089017
+    },
+    {
+      "id": "prf-la-prva-dijagonalizacija",
+      "taxon": "proof",
+      "title": "Rješenje: Prva dijagonalizacija",
+      "teaches": [
+        "eigenvalues-eigenvectors",
+        "diagonalization"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [
+        "exr-la-prva-dijagonalizacija"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 21120,
+      "scale": 0.00093665496
+    },
+    {
+      "id": "prf-la-symmetric-square-root",
+      "taxon": "proof",
+      "title": "Rješenje: The symmetric square root",
+      "teaches": [
+        "spectral-theorem"
+      ],
+      "requires": [
+        "diagonalization",
+        "inner-product-spaces"
+      ],
+      "depends": [
+        "exr-la-symmetric-square-root"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 21504,
+      "scale": 0.00095087155
+    },
+    {
+      "id": "prf-la-three-point-fit",
+      "taxon": "proof",
+      "title": "Rješenje: Fitting a cubic through three points",
+      "teaches": [
+        "rank-nullity"
+      ],
+      "requires": [
+        "vector-spaces",
+        "linear-maps"
+      ],
+      "depends": [
+        "exr-la-three-point-fit"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 21888,
+      "scale": 0.0010298934
+    },
+    {
+      "id": "prf-pf-kruzni-trio",
+      "taxon": "proof",
+      "title": "Rješenje: Kružne trojke na turniru bez remija",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [
+        "exr-pf-kruzni-trio"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 22272,
+      "scale": 0.0010708353
+    },
+    {
+      "id": "prf-pf-pomak-za-dva",
+      "taxon": "proof",
+      "title": "Rješenje: Funkcija koja raste za dva",
+      "teaches": [
+        "functional-equations"
+      ],
+      "requires": [
+        "functions",
+        "induction"
+      ],
+      "depends": [
+        "exr-pf-pomak-za-dva"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 22656,
+      "scale": 0.00091340539
+    },
+    {
+      "id": "prf-pf-slozni-susjedi",
+      "taxon": "proof",
+      "title": "Rješenje: Složni susjedi za okruglim stolom",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [
+        "exr-pf-slozni-susjedi"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 23040,
+      "scale": 0.0010450223
+    },
+    {
+      "id": "prf-pf-tombola-dobitnici",
+      "taxon": "proof",
+      "title": "Rješenje: Koliko različitih dobitnika ima tombola?",
+      "teaches": [
+        "linearity-of-expectation"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables",
+        "expectation"
+      ],
+      "depends": [
+        "exr-pf-tombola-dobitnici"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 23424,
+      "scale": 0.001076709
+    },
+    {
+      "id": "prf-pf-zamjena-argumenta",
+      "taxon": "proof",
+      "title": "Rješenje: Dvije jednadžbe iz jedne zamjene",
+      "teaches": [
+        "functional-equations"
+      ],
+      "requires": [
+        "functions"
+      ],
+      "depends": [
+        "exr-pf-zamjena-argumenta"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 23808,
+      "scale": 0.00096254156
+    },
+    {
+      "id": "prf-qd-centar-diedarske",
+      "taxon": "proof",
+      "title": "Rješenje: Kvocijent diedarske grupe po njezinu središtu",
+      "teaches": [
+        "quotient-groups",
+        "normal-subgroups"
+      ],
+      "requires": [
+        "groups",
+        "cosets",
+        "conjugation"
+      ],
+      "depends": [
+        "exr-qd-centar-diedarske"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 24192,
+      "scale": 0.0010638798
+    },
+    {
+      "id": "prf-qd-rationals-mod-one",
+      "taxon": "proof",
+      "title": "Rješenje: The rationals modulo one",
+      "teaches": [
+        "quotient-groups"
+      ],
+      "requires": [
+        "cosets",
+        "normal-subgroups",
+        "cyclic-groups",
+        "lagrange"
+      ],
+      "depends": [
+        "exr-qd-rationals-mod-one"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 24576,
+      "scale": 0.001013602
+    },
+    {
+      "id": "prf-qd-red-u-kvocijentu",
+      "taxon": "proof",
+      "title": "Rješenje: Redovi elemenata u kvocijentu grupe Z36",
+      "teaches": [
+        "quotient-groups"
+      ],
+      "requires": [
+        "cosets",
+        "normal-subgroups",
+        "cyclic-groups"
+      ],
+      "depends": [
+        "exr-qd-red-u-kvocijentu"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 24960,
+      "scale": 0.0010348844
+    },
+    {
+      "id": "prf-qd-thirteen-sensors",
+      "taxon": "proof",
+      "title": "Rješenje: Thirteen sensors in a workshop",
+      "teaches": [
+        "pigeonhole"
+      ],
+      "requires": [
+        "sets"
+      ],
+      "depends": [
+        "exr-qd-thirteen-sensors"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 25344,
+      "scale": 0.00089221454
+    },
+    {
+      "id": "prf-qd-zbrojevi-oko-stola",
+      "taxon": "proof",
+      "title": "Rješenje: Zbrojevi oko okruglog stola",
+      "teaches": [
+        "pigeonhole"
+      ],
+      "requires": [
+        "modular-arithmetic"
+      ],
+      "depends": [
+        "exr-qd-zbrojevi-oko-stola"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 25728,
+      "scale": 0.00094170223
+    },
+    {
+      "id": "prf-sc-central-binomial-threshold",
+      "taxon": "proof",
+      "title": "Rješenje: The central binomial threshold",
+      "teaches": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "requires": [
+        "ratio-root-tests"
+      ],
+      "depends": [
+        "exr-sc-central-binomial-threshold"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 26112,
+      "scale": 0.00098518769
+    },
+    {
+      "id": "prf-sc-logaritamske-ljestve",
+      "taxon": "proof",
+      "title": "Rješenje: Logaritamske ljestve",
+      "teaches": [
+        "cauchy-condensation"
+      ],
+      "requires": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "depends": [
+        "exr-sc-logaritamske-ljestve"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 26496,
+      "scale": 0.0011239224
+    },
+    {
+      "id": "prf-sc-potencija-protiv-faktorijele",
+      "taxon": "proof",
+      "title": "Rješenje: Potencija protiv faktorijele",
+      "teaches": [
+        "ratio-root-tests"
+      ],
+      "requires": [
+        "series-convergence",
+        "comparison-test"
+      ],
+      "depends": [
+        "exr-sc-potencija-protiv-faktorijele"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 26880,
+      "scale": 0.001071797
+    },
+    {
+      "id": "prf-sc-potencije-na-segmentu",
+      "taxon": "proof",
+      "title": "Rješenje: Potencije na segmentu",
+      "teaches": [
+        "pointwise-convergence",
+        "uniform-convergence"
+      ],
+      "requires": [
+        "sequence-limits"
+      ],
+      "depends": [
+        "exr-sc-potencije-na-segmentu"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 27264,
+      "scale": 0.00091529814
+    },
+    {
+      "id": "prf-sc-putujuci-brijeg",
+      "taxon": "proof",
+      "title": "Rješenje: Putujući brijeg",
+      "teaches": [
+        "uniform-convergence"
+      ],
+      "requires": [
+        "pointwise-convergence",
+        "epsilon-delta-continuity"
+      ],
+      "depends": [
+        "exr-sc-putujuci-brijeg"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 27648,
+      "scale": 0.00092562664
+    },
+    {
+      "id": "prf-sc-what-uniformity-buys",
+      "taxon": "proof",
+      "title": "Rješenje: What uniformity buys",
+      "teaches": [
+        "uniform-convergence"
+      ],
+      "requires": [
+        "pointwise-convergence",
+        "epsilon-delta-continuity",
+        "compactness"
+      ],
+      "depends": [
+        "exr-sc-what-uniformity-buys"
+      ],
+      "group": "Zadatci iz zbirke",
+      "standalone": true,
+      "offset": 28032,
+      "scale": 0.0010870004
+    },
+    {
+      "id": "thm-an-cauchy-schwarz-inner-product",
+      "taxon": "theorem",
+      "title": "Cauchy-Schwarz inequality in an inner product space via orthogonal projection",
+      "teaches": [
+        "cauchy-schwarz"
+      ],
+      "requires": [
+        "inner-product-spaces"
+      ],
+      "depends": [],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 28416,
+      "scale": 0.0010114892
+    },
+    {
+      "id": "thm-an-cauchy-schwarz-rn",
+      "taxon": "theorem",
+      "title": "Cauchy-Schwarz inequality in R^n via Lagrange's identity",
+      "teaches": [
+        "cauchy-schwarz"
+      ],
+      "requires": [
+        "vector-spaces"
+      ],
+      "depends": [],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 28800,
+      "scale": 0.00094351161
+    },
+    {
+      "id": "thm-ga-lagrange-djelovanje",
+      "taxon": "theorem",
+      "title": "Lagrange's theorem via a free group action",
+      "teaches": [
+        "lagrange",
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "group-actions",
+        "cosets"
+      ],
+      "depends": [],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 29184,
+      "scale": 0.00096096163
+    },
+    {
+      "id": "thm-ga-lagrange-particija",
+      "taxon": "theorem",
+      "title": "Lagrangeov teorem: dokaz preko particije na kosete",
+      "teaches": [
+        "lagrange"
+      ],
+      "requires": [
+        "subgroups",
+        "cosets",
+        "index"
+      ],
+      "depends": [],
+      "group": "Dokazi iz zbirke",
+      "standalone": true,
+      "offset": 29568,
+      "scale": 0.0011281822
+    }
+  ]
+}
