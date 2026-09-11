@@ -75,13 +75,25 @@ Every push to `main` runs `scripts/build.mjs`, which writes `dist/`:
 
 - the **static site** — an index page plus one page per bundle, math
   rendered client-side with KaTeX;
+- the **forest** — `forest/index.html` (client-side search over every tree,
+  then the whole map grouped by `forest/index.md`'s sections), one page per
+  tree at `forest/<id>/`, and `forest/graph.html`, the interactive graph
+  copied verbatim from `forest/views/forest.html`;
+- **vaults to download** — `forest/matsek-forest.zip` (the whole forest) and
+  `blogs/<slug>/<slug>-vault.zip` per blog (that blog's trees, a generated
+  `forest.json`, a reading-order `index.md`, and the source bundle verbatim
+  under `source-bundle/`); both open as Obsidian vaults;
 - **`llms-full.txt`** — the entire corpus (concept registry + every
-  manifest and markdown file) in one delimited text file, for agents that
-  read the library whole;
+  manifest and markdown file + every forest tree) in one delimited text
+  file, for agents that read the library whole;
 - the **search index** — `index/index.json` + `index/vectors.i8.bin`,
   embeddings of statement + annotation per the ecosystem convention
   (`Xenova/multilingual-e5-small`, q8, 384 dims, `passage: ` prefix —
-  spec `DECISIONS.md` D-003), int8-quantized with a per-item scale.
+  spec `DECISIONS.md` D-003), int8-quantized with a per-item scale. Bundles
+  and trees share the one index, told apart by `kind`.
+
+A checkout without `forest/` builds every one of these except the forest
+parts, which are skipped whole.
 
 Pull-request CI runs the same build with `SKIP_EMBED=1`, so PRs never
 depend on the embedding model downloading.
