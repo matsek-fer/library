@@ -7,7 +7,7 @@ requires: [group-actions, cyclic-groups, lagrange]
 language: "hr"
 digested_from: "problem/ga-ogrlice-mali-fermat"
 standalone: true
-depends: []
+depends: [def-djelovanje-grupe, prp-orbite-particioniraju, cor-velicina-orbite-dijeli-red]
 x_annotation: "Bridge item between group actions and number theory: Fermat's little\ntheorem proved by letting the cyclic group $\\mathbb{Z}/p\\mathbb{Z}$ act\non length-$p$ strings over $a$ colours by cyclic rotation (the necklace\nargument). Tests whether the solver can verify an action given by an\nindex-shift formula, characterize the fixed points (one-element orbits\nare exactly the constant strings, $a$ of them), and use Lagrange plus\norbit–stabilizer to show every orbit has size 1 or $p$ because a\nstabilizer inside a group of prime order is trivial or everything.\nCounting $a^p = a + mp$ over the orbit partition yields\n$p \\mid a^p - a$, and Euclid's lemma converts this to\n$a^{p-1} \\equiv 1 \\pmod p$. Techniques: orbit counting, fixed-point\ncharacterization, prime order forcing orbit sizes, class equation in\nminiature. Instantiates the principle that a divisibility statement can\nbe proved by exhibiting a set of the right cardinality and a group\naction whose orbit sizes are controlled — congruences become geometry.\nAlso flags where primality is used twice (orbit sizes, Euclid's lemma)\nand that the composite analogue $n \\mid a^n - a$ fails. Common failure:\nasserting all non-fixed orbits have size $p$ without the stabilizer\nargument. Croatian-language item; answers queries linking group actions\nto number theory (Fermat/Euler via orbits, necklace counting)."
 ---
 
