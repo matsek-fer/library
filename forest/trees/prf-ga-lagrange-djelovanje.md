@@ -7,7 +7,7 @@ requires: [group-actions, cosets]
 language: "en"
 digested_from: "proof/ga-lagrange-djelovanje"
 standalone: true
-depends: [thm-ga-lagrange-djelovanje]
+depends: [thm-ga-lagrange-djelovanje, def-djelovanje-grupe, def-orbita-i-stabilizator]
 proves: "thm-ga-lagrange-djelovanje"
 ---
 

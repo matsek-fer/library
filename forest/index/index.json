@@ -5,6 +5,381 @@
   "quantization": "int8-per-item-scale",
   "items": [
     {
+      "id": "con-galois-connections-are-adjunctions",
+      "taxon": "connection",
+      "title": "Galois connections are adjunctions between thin categories",
+      "teaches": [
+        "adjoint-functors"
+      ],
+      "requires": [
+        "categories-functors",
+        "limits-colimits"
+      ],
+      "depends": [
+        "def-galois-connection",
+        "thm-adjoints-preserve-bounds"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 0,
+      "scale": 0.00093581187
+    },
+    {
+      "id": "con-od-fiksnih-tocaka-do-jednadzbe-klasa",
+      "taxon": "connection",
+      "title": "Od brojanja orbita do jednadžbe klasa",
+      "teaches": [
+        "conjugation",
+        "class-equation"
+      ],
+      "requires": [
+        "subgroups",
+        "index"
+      ],
+      "depends": [
+        "thm-orbita-stabilizator",
+        "prp-orbite-particioniraju"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 384,
+      "scale": 0.00095510729
+    },
+    {
+      "id": "cor-velicina-orbite-dijeli-red",
+      "taxon": "corollary",
+      "title": "Veličina orbite dijeli red grupe",
+      "teaches": [
+        "orbit-stabilizer-theorem"
+      ],
+      "requires": [
+        "index"
+      ],
+      "depends": [
+        "thm-orbita-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 768,
+      "scale": 0.00097352319
+    },
+    {
+      "id": "def-closure-operator",
+      "taxon": "definition",
+      "title": "Closure operator",
+      "teaches": [
+        "closure-operators"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 1152,
+      "scale": 0.00099064433
+    },
+    {
+      "id": "def-djelovanje-grupe",
+      "taxon": "definition",
+      "title": "Djelovanje grupe na skupu",
+      "teaches": [
+        "group-actions"
+      ],
+      "requires": [
+        "groups",
+        "sets",
+        "functions"
+      ],
+      "depends": [],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 1536,
+      "scale": 0.0010320927
+    },
+    {
+      "id": "def-entropy",
+      "taxon": "definition",
+      "title": "Entropy of a discrete random variable",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "expectation",
+        "random-variables",
+        "probability-basics"
+      ],
+      "depends": [
+        "def-surprise"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 1920,
+      "scale": 0.00090860546
+    },
+    {
+      "id": "def-galois-connection",
+      "taxon": "definition",
+      "title": "Galois connection",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 2304,
+      "scale": 0.001061042
+    },
+    {
+      "id": "def-orbita-i-stabilizator",
+      "taxon": "definition",
+      "title": "Orbita i stabilizator",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "groups",
+        "subgroups"
+      ],
+      "depends": [
+        "def-djelovanje-grupe"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 2688,
+      "scale": 0.0011737351
+    },
+    {
+      "id": "def-surprise",
+      "taxon": "definition",
+      "title": "Surprise of an outcome",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables"
+      ],
+      "depends": [],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 3072,
+      "scale": 0.0011517321
+    },
+    {
+      "id": "exm-abelianization-left-adjoint",
+      "taxon": "example",
+      "title": "Abelianization: a left adjoint earning its keep",
+      "teaches": [
+        "adjoint-functors"
+      ],
+      "requires": [
+        "quotient-groups",
+        "group-homomorphisms",
+        "categories-functors",
+        "limits-colimits"
+      ],
+      "depends": [
+        "con-galois-connections-are-adjunctions"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 3456,
+      "scale": 0.00094600016
+    },
+    {
+      "id": "exm-coin-entropies",
+      "taxon": "example",
+      "title": "Three coins: 1 bit, 0.47 bits, 0 bits",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "expectation"
+      ],
+      "depends": [
+        "def-entropy"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 3840,
+      "scale": 0.00086621031
+    },
+    {
+      "id": "exm-floor-ceiling-adjunction",
+      "taxon": "example",
+      "title": "Floor and ceiling as the two adjoints of Z into R",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection",
+        "thm-adjoints-preserve-bounds"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 4224,
+      "scale": 0.00095003955
+    },
+    {
+      "id": "exm-galois-correspondence-fields",
+      "taxon": "example",
+      "title": "Subgroups and fixed fields: the eponymous connection",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "subgroups",
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 4608,
+      "scale": 0.0010508841
+    },
+    {
+      "id": "exm-generated-subgroup-closure",
+      "taxon": "example",
+      "title": "Generated subgroups as a closure operator",
+      "teaches": [
+        "closure-operators"
+      ],
+      "requires": [
+        "subgroups",
+        "partial-orders"
+      ],
+      "depends": [
+        "thm-connection-induces-closure",
+        "def-galois-connection",
+        "thm-adjoints-preserve-bounds"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 4992,
+      "scale": 0.00093003626
+    },
+    {
+      "id": "exm-kvadrat-orbita-stabilizator",
+      "taxon": "example",
+      "title": "Vrhovi kvadrata: orbita 4, stabilizator 2",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "permutation-groups"
+      ],
+      "depends": [
+        "thm-orbita-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 5376,
+      "scale": 0.00091178299
+    },
+    {
+      "id": "exm-ogrlice-tri-perle",
+      "taxon": "example",
+      "title": "Ogrlice od tri perle u dvije boje",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "cyclic-groups"
+      ],
+      "depends": [
+        "thm-burnsideova-lema"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 5760,
+      "scale": 0.0011306297
+    },
+    {
+      "id": "exm-tri-djelovanja",
+      "taxon": "example",
+      "title": "Tri djelovanja za kalibraciju",
+      "teaches": [
+        "group-actions"
+      ],
+      "requires": [
+        "permutation-groups",
+        "cyclic-groups",
+        "modular-arithmetic"
+      ],
+      "depends": [
+        "def-djelovanje-grupe"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 6144,
+      "scale": 0.0010942228
+    },
+    {
+      "id": "exm-two-fair-dice",
+      "taxon": "example",
+      "title": "Two dice carry twice the entropy of one",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "probability-basics"
+      ],
+      "depends": [
+        "thm-entropy-additive-independent"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 6528,
+      "scale": 0.00096417911
+    },
+    {
+      "id": "exp-entropy-as-a-guessing-game",
+      "taxon": "exposition",
+      "title": "Entropy as a guessing game: the price of identification",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "expectation"
+      ],
+      "depends": [
+        "def-entropy",
+        "thm-entropy-additive-independent"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 6912,
+      "scale": 0.0010920404
+    },
+    {
+      "id": "exp-why-the-logarithm",
+      "taxon": "exposition",
+      "title": "Why the logarithm, and not some simpler formula",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "functional-equations",
+        "probability-basics"
+      ],
+      "depends": [
+        "def-surprise"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 7296,
+      "scale": 0.00094763313
+    },
+    {
       "id": "exr-an-bounded-implies-compact",
       "taxon": "exercise",
       "title": "When every continuous function is bounded",
@@ -18,7 +393,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 0,
+      "offset": 7680,
       "scale": 0.0010520811
     },
     {
@@ -34,7 +409,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 384,
+      "offset": 8064,
       "scale": 0.0011130648
     },
     {
@@ -50,7 +425,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 768,
+      "offset": 8448,
       "scale": 0.00094318977
     },
     {
@@ -68,7 +443,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 1152,
+      "offset": 8832,
       "scale": 0.00095952965
     },
     {
@@ -86,7 +461,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 1536,
+      "offset": 9216,
       "scale": 0.00093305733
     },
     {
@@ -103,7 +478,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 1920,
+      "offset": 9600,
       "scale": 0.00087725389
     },
     {
@@ -119,10 +494,13 @@
         "index",
         "orbits-stabilizers"
       ],
-      "depends": [],
+      "depends": [
+        "def-djelovanje-grupe",
+        "def-orbita-i-stabilizator"
+      ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 2304,
+      "offset": 9984,
       "scale": 0.00096798524
     },
     {
@@ -140,10 +518,13 @@
         "lagrange",
         "orbits-stabilizers"
       ],
-      "depends": [],
+      "depends": [
+        "prp-orbite-particioniraju",
+        "cor-velicina-orbite-dijeli-red"
+      ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 2688,
+      "offset": 10368,
       "scale": 0.00096401514
     },
     {
@@ -161,7 +542,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 3072,
+      "offset": 10752,
       "scale": 0.0010981298
     },
     {
@@ -179,10 +560,12 @@
         "orbit-stabilizer-theorem",
         "lagrange"
       ],
-      "depends": [],
+      "depends": [
+        "prp-djelovanje-kao-permutacije"
+      ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 3456,
+      "offset": 11136,
       "scale": 0.0009778992
     },
     {
@@ -198,10 +581,14 @@
         "cyclic-groups",
         "lagrange"
       ],
-      "depends": [],
+      "depends": [
+        "def-djelovanje-grupe",
+        "prp-orbite-particioniraju",
+        "cor-velicina-orbite-dijeli-red"
+      ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 3840,
+      "offset": 11520,
       "scale": 0.00097967162
     },
     {
@@ -217,10 +604,12 @@
         "lagrange",
         "index"
       ],
-      "depends": [],
+      "depends": [
+        "thm-orbita-stabilizator"
+      ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 4224,
+      "offset": 11904,
       "scale": 0.0010652586
     },
     {
@@ -238,7 +627,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 4608,
+      "offset": 12288,
       "scale": 0.0011040287
     },
     {
@@ -254,7 +643,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 4992,
+      "offset": 12672,
       "scale": 0.0011551847
     },
     {
@@ -271,7 +660,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 5376,
+      "offset": 13056,
       "scale": 0.00089164583
     },
     {
@@ -288,7 +677,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 5760,
+      "offset": 13440,
       "scale": 0.0010941442
     },
     {
@@ -306,7 +695,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 6144,
+      "offset": 13824,
       "scale": 0.00094693752
     },
     {
@@ -323,7 +712,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 6528,
+      "offset": 14208,
       "scale": 0.00090538851
     },
     {
@@ -340,7 +729,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 6912,
+      "offset": 14592,
       "scale": 0.0010059715
     },
     {
@@ -358,7 +747,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 7296,
+      "offset": 14976,
       "scale": 0.00089746849
     },
     {
@@ -375,7 +764,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 7680,
+      "offset": 15360,
       "scale": 0.0011481894
     },
     {
@@ -393,7 +782,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 8064,
+      "offset": 15744,
       "scale": 0.00083033934
     },
     {
@@ -411,7 +800,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 8448,
+      "offset": 16128,
       "scale": 0.00088559402
     },
     {
@@ -427,7 +816,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 8832,
+      "offset": 16512,
       "scale": 0.00099982767
     },
     {
@@ -446,7 +835,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 9216,
+      "offset": 16896,
       "scale": 0.0010095959
     },
     {
@@ -465,7 +854,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 9600,
+      "offset": 17280,
       "scale": 0.0010296909
     },
     {
@@ -483,7 +872,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 9984,
+      "offset": 17664,
       "scale": 0.00091668887
     },
     {
@@ -499,7 +888,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 10368,
+      "offset": 18048,
       "scale": 0.0010179973
     },
     {
@@ -515,7 +904,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 10752,
+      "offset": 18432,
       "scale": 0.0010281188
     },
     {
@@ -532,7 +921,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 11136,
+      "offset": 18816,
       "scale": 0.0010411122
     },
     {
@@ -549,7 +938,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 11520,
+      "offset": 19200,
       "scale": 0.0009285668
     },
     {
@@ -566,7 +955,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 11904,
+      "offset": 19584,
       "scale": 0.001078576
     },
     {
@@ -583,7 +972,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 12288,
+      "offset": 19968,
       "scale": 0.00096790475
     },
     {
@@ -600,7 +989,7 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 12672,
+      "offset": 20352,
       "scale": 0.00099874153
     },
     {
@@ -618,8 +1007,74 @@
       "depends": [],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 13056,
+      "offset": 20736,
       "scale": 0.0010493082
+    },
+    {
+      "id": "mot-brojanje-djelovanjem",
+      "taxon": "motivation",
+      "title": "Zašto brojiti djelovanjem grupe",
+      "teaches": [
+        "group-actions"
+      ],
+      "requires": [
+        "groups",
+        "modular-arithmetic"
+      ],
+      "depends": [],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 21120,
+      "scale": 0.00089416717
+    },
+    {
+      "id": "mot-entropy-without-measure",
+      "taxon": "motivation",
+      "title": "What entropy is for, and why finite probability suffices",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables"
+      ],
+      "depends": [],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 21504,
+      "scale": 0.00092473174
+    },
+    {
+      "id": "mot-galois-connections-beyond-galois",
+      "taxon": "motivation",
+      "title": "Why Galois connections are not about fields",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 21888,
+      "scale": 0.0010811137
+    },
+    {
+      "id": "prf-adjoints-preserve-bounds",
+      "taxon": "proof",
+      "title": "Proof: left adjoints preserve suprema, right adjoints preserve infima",
+      "teaches": [],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "thm-adjoints-preserve-bounds"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 22272,
+      "scale": 0.001017042
     },
     {
       "id": "prf-an-bounded-implies-compact",
@@ -637,7 +1092,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 13440,
+      "offset": 22656,
       "scale": 0.00095598452
     },
     {
@@ -655,7 +1110,7 @@
       ],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 13824,
+      "offset": 23040,
       "scale": 0.00085103641
     },
     {
@@ -673,7 +1128,7 @@
       ],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 14208,
+      "offset": 23424,
       "scale": 0.00086950587
     },
     {
@@ -691,7 +1146,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 14592,
+      "offset": 23808,
       "scale": 0.00098356863
     },
     {
@@ -709,7 +1164,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 14976,
+      "offset": 24192,
       "scale": 0.00095994383
     },
     {
@@ -729,7 +1184,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 15360,
+      "offset": 24576,
       "scale": 0.0008320704
     },
     {
@@ -749,7 +1204,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 15744,
+      "offset": 24960,
       "scale": 0.00091777537
     },
     {
@@ -768,8 +1223,80 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 16128,
+      "offset": 25344,
       "scale": 0.0010410984
+    },
+    {
+      "id": "prf-burnsideova-lema",
+      "taxon": "proof",
+      "title": "Dokaz Burnsideove leme dvostrukim prebrojavanjem",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "groups"
+      ],
+      "depends": [
+        "thm-burnsideova-lema",
+        "thm-orbita-stabilizator",
+        "prp-orbite-particioniraju"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 25728,
+      "scale": 0.00097209667
+    },
+    {
+      "id": "prf-connection-induces-closure",
+      "taxon": "proof",
+      "title": "Proof: every Galois connection induces a closure operator",
+      "teaches": [],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "thm-connection-induces-closure",
+        "prp-galois-round-trips"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 26112,
+      "scale": 0.0011715543
+    },
+    {
+      "id": "prf-djelovanje-kao-permutacije",
+      "taxon": "proof",
+      "title": "Dokaz: djelovanje je isto što i homomorfizam u Sym(X)",
+      "teaches": [],
+      "requires": [
+        "group-homomorphisms",
+        "functions"
+      ],
+      "depends": [
+        "prp-djelovanje-kao-permutacije"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 26496,
+      "scale": 0.00083443828
+    },
+    {
+      "id": "prf-entropy-additive-independent",
+      "taxon": "proof",
+      "title": "Proof: entropy is additive over independent variables",
+      "teaches": [],
+      "requires": [
+        "linearity-of-expectation",
+        "probability-basics"
+      ],
+      "depends": [
+        "thm-entropy-additive-independent",
+        "def-surprise"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 26880,
+      "scale": 0.0010493297
     },
     {
       "id": "prf-ga-coset-action",
@@ -789,7 +1316,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 16512,
+      "offset": 27264,
       "scale": 0.00098386548
     },
     {
@@ -812,7 +1339,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 16896,
+      "offset": 27648,
       "scale": 0.00093580524
     },
     {
@@ -832,7 +1359,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 17280,
+      "offset": 28032,
       "scale": 0.0010759985
     },
     {
@@ -848,11 +1375,13 @@
         "cosets"
       ],
       "depends": [
-        "thm-ga-lagrange-djelovanje"
+        "thm-ga-lagrange-djelovanje",
+        "def-djelovanje-grupe",
+        "def-orbita-i-stabilizator"
       ],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 17664,
+      "offset": 28416,
       "scale": 0.0009252842
     },
     {
@@ -872,7 +1401,7 @@
       ],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 18048,
+      "offset": 28800,
       "scale": 0.00097968195
     },
     {
@@ -895,7 +1424,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 18432,
+      "offset": 29184,
       "scale": 0.00092724898
     },
     {
@@ -916,7 +1445,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 18816,
+      "offset": 29568,
       "scale": 0.0010427639
     },
     {
@@ -937,7 +1466,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 19200,
+      "offset": 29952,
       "scale": 0.0011539311
     },
     {
@@ -957,8 +1486,24 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 19584,
+      "offset": 30336,
       "scale": 0.0010405687
+    },
+    {
+      "id": "prf-galois-round-trips",
+      "taxon": "proof",
+      "title": "Proof: round trips in a Galois connection",
+      "teaches": [],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "prp-galois-round-trips"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 30720,
+      "scale": 0.0010822995
     },
     {
       "id": "prf-la-diagonalizable-parameter",
@@ -975,7 +1520,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 19968,
+      "offset": 31104,
       "scale": 0.00090538511
     },
     {
@@ -994,7 +1539,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 20352,
+      "offset": 31488,
       "scale": 0.00085632221
     },
     {
@@ -1013,7 +1558,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 20736,
+      "offset": 31872,
       "scale": 0.00098089017
     },
     {
@@ -1033,7 +1578,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 21120,
+      "offset": 32256,
       "scale": 0.00093665496
     },
     {
@@ -1052,7 +1597,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 21504,
+      "offset": 32640,
       "scale": 0.00095087155
     },
     {
@@ -1071,8 +1616,68 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 21888,
+      "offset": 33024,
       "scale": 0.0010298934
+    },
+    {
+      "id": "prf-mali-fermat-ogrlice",
+      "taxon": "proof",
+      "title": "Dokaz malog Fermatova teorema vrtnjom ogrlica",
+      "teaches": [
+        "orbits-stabilizers",
+        "modular-arithmetic"
+      ],
+      "requires": [
+        "cyclic-groups",
+        "modular-arithmetic"
+      ],
+      "depends": [
+        "thm-mali-fermatov-teorem",
+        "thm-orbita-stabilizator",
+        "prp-orbite-particioniraju",
+        "thm-ga-lagrange-particija"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 33408,
+      "scale": 0.00090938261
+    },
+    {
+      "id": "prf-orbita-stabilizator",
+      "taxon": "proof",
+      "title": "Dokaz: teorem orbita–stabilizator",
+      "teaches": [
+        "orbit-stabilizer-theorem"
+      ],
+      "requires": [
+        "cosets",
+        "index"
+      ],
+      "depends": [
+        "thm-orbita-stabilizator",
+        "prp-stabilizator-je-podgrupa",
+        "thm-ga-lagrange-particija"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 33792,
+      "scale": 0.0011054492
+    },
+    {
+      "id": "prf-orbite-particioniraju",
+      "taxon": "proof",
+      "title": "Dokaz: orbite particioniraju skup",
+      "teaches": [],
+      "requires": [
+        "sets"
+      ],
+      "depends": [
+        "prp-orbite-particioniraju"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 34176,
+      "scale": 0.0010370413
     },
     {
       "id": "prf-pf-kruzni-trio",
@@ -1091,7 +1696,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 22272,
+      "offset": 34560,
       "scale": 0.0010708353
     },
     {
@@ -1110,7 +1715,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 22656,
+      "offset": 34944,
       "scale": 0.00091340539
     },
     {
@@ -1130,7 +1735,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 23040,
+      "offset": 35328,
       "scale": 0.0010450223
     },
     {
@@ -1150,7 +1755,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 23424,
+      "offset": 35712,
       "scale": 0.001076709
     },
     {
@@ -1168,7 +1773,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 23808,
+      "offset": 36096,
       "scale": 0.00096254156
     },
     {
@@ -1189,7 +1794,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 24192,
+      "offset": 36480,
       "scale": 0.0010638798
     },
     {
@@ -1210,7 +1815,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 24576,
+      "offset": 36864,
       "scale": 0.001013602
     },
     {
@@ -1230,7 +1835,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 24960,
+      "offset": 37248,
       "scale": 0.0010348844
     },
     {
@@ -1248,7 +1853,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 25344,
+      "offset": 37632,
       "scale": 0.00089221454
     },
     {
@@ -1266,7 +1871,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 25728,
+      "offset": 38016,
       "scale": 0.00094170223
     },
     {
@@ -1285,7 +1890,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 26112,
+      "offset": 38400,
       "scale": 0.00098518769
     },
     {
@@ -1304,7 +1909,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 26496,
+      "offset": 38784,
       "scale": 0.0011239224
     },
     {
@@ -1323,7 +1928,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 26880,
+      "offset": 39168,
       "scale": 0.001071797
     },
     {
@@ -1342,7 +1947,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 27264,
+      "offset": 39552,
       "scale": 0.00091529814
     },
     {
@@ -1361,7 +1966,7 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 27648,
+      "offset": 39936,
       "scale": 0.00092562664
     },
     {
@@ -1381,8 +1986,198 @@
       ],
       "group": "Zadatci iz zbirke",
       "standalone": true,
-      "offset": 28032,
+      "offset": 40320,
       "scale": 0.0010870004
+    },
+    {
+      "id": "prf-stabilizator-je-podgrupa",
+      "taxon": "proof",
+      "title": "Dokaz: stabilizator je podgrupa",
+      "teaches": [],
+      "requires": [
+        "subgroups"
+      ],
+      "depends": [
+        "prp-stabilizator-je-podgrupa"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 40704,
+      "scale": 0.00094863931
+    },
+    {
+      "id": "prf-uniform-maximizes-entropy",
+      "taxon": "proof",
+      "title": "Proof: the uniform distribution maximizes entropy",
+      "teaches": [],
+      "requires": [
+        "expectation"
+      ],
+      "depends": [
+        "thm-uniform-maximizes-entropy"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 41088,
+      "scale": 0.0010581047
+    },
+    {
+      "id": "prf-velicina-orbite-dijeli-red",
+      "taxon": "proof",
+      "title": "Dokaz: veličina orbite dijeli red grupe",
+      "teaches": [],
+      "requires": [
+        "index"
+      ],
+      "depends": [
+        "cor-velicina-orbite-dijeli-red",
+        "thm-orbita-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 41472,
+      "scale": 0.0010137213
+    },
+    {
+      "id": "prp-djelovanje-kao-permutacije",
+      "taxon": "proposition",
+      "title": "Djelovanje je isto što i homomorfizam u Sym(X)",
+      "teaches": [
+        "group-actions",
+        "permutation-groups"
+      ],
+      "requires": [
+        "group-homomorphisms",
+        "functions"
+      ],
+      "depends": [
+        "def-djelovanje-grupe"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 41856,
+      "scale": 0.00090448951
+    },
+    {
+      "id": "prp-galois-round-trips",
+      "taxon": "proposition",
+      "title": "Round trips in a Galois connection",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 42240,
+      "scale": 0.00098362905
+    },
+    {
+      "id": "prp-orbite-particioniraju",
+      "taxon": "proposition",
+      "title": "Orbite particioniraju skup",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "sets",
+        "functions"
+      ],
+      "depends": [
+        "def-orbita-i-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 42624,
+      "scale": 0.0010207141
+    },
+    {
+      "id": "prp-stabilizator-je-podgrupa",
+      "taxon": "proposition",
+      "title": "Stabilizator je podgrupa",
+      "teaches": [
+        "orbits-stabilizers"
+      ],
+      "requires": [
+        "subgroups"
+      ],
+      "depends": [
+        "def-orbita-i-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 43008,
+      "scale": 0.00094660113
+    },
+    {
+      "id": "rem-floor-fails-suprema",
+      "taxon": "remark",
+      "title": "Floor shrugs at suprema",
+      "teaches": [],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "exm-floor-ceiling-adjunction"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 43392,
+      "scale": 0.0010123673
+    },
+    {
+      "id": "rem-monotonicity-is-automatic",
+      "taxon": "remark",
+      "title": "Monotonicity comes free, and each adjoint determines the other",
+      "teaches": [],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 43776,
+      "scale": 0.0011064156
+    },
+    {
+      "id": "rem-zero-probability-convention",
+      "taxon": "remark",
+      "title": "Why impossible outcomes contribute zero",
+      "teaches": [],
+      "requires": [
+        "limits-of-functions"
+      ],
+      "depends": [
+        "def-entropy"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 44160,
+      "scale": 0.0010627742
+    },
+    {
+      "id": "thm-adjoints-preserve-bounds",
+      "taxon": "theorem",
+      "title": "Left adjoints preserve suprema, right adjoints preserve infima",
+      "teaches": [
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 44544,
+      "scale": 0.0009109152
     },
     {
       "id": "thm-an-cauchy-schwarz-inner-product",
@@ -1397,7 +2192,7 @@
       "depends": [],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 28416,
+      "offset": 44928,
       "scale": 0.0010114892
     },
     {
@@ -1413,8 +2208,67 @@
       "depends": [],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 28800,
+      "offset": 45312,
       "scale": 0.00094351161
+    },
+    {
+      "id": "thm-burnsideova-lema",
+      "taxon": "theorem",
+      "title": "Burnsideova lema: broj orbita je prosjek fiksnih točaka",
+      "teaches": [
+        "orbits-stabilizers",
+        "group-actions"
+      ],
+      "requires": [
+        "groups"
+      ],
+      "depends": [
+        "def-orbita-i-stabilizator"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 45696,
+      "scale": 0.00094594683
+    },
+    {
+      "id": "thm-connection-induces-closure",
+      "taxon": "theorem",
+      "title": "Every Galois connection induces a closure operator",
+      "teaches": [
+        "closure-operators",
+        "galois-connections"
+      ],
+      "requires": [
+        "partial-orders"
+      ],
+      "depends": [
+        "def-galois-connection",
+        "def-closure-operator",
+        "prp-galois-round-trips"
+      ],
+      "group": "Blog: Galois connections beyond Galois theory",
+      "standalone": true,
+      "offset": 46080,
+      "scale": 0.0010504327
+    },
+    {
+      "id": "thm-entropy-additive-independent",
+      "taxon": "theorem",
+      "title": "Entropy is additive over independent variables",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "probability-basics",
+        "random-variables"
+      ],
+      "depends": [
+        "def-entropy"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 46464,
+      "scale": 0.0010263975
     },
     {
       "id": "thm-ga-lagrange-djelovanje",
@@ -1431,7 +2285,7 @@
       "depends": [],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 29184,
+      "offset": 46848,
       "scale": 0.00096096163
     },
     {
@@ -1449,8 +2303,60 @@
       "depends": [],
       "group": "Dokazi iz zbirke",
       "standalone": true,
-      "offset": 29568,
+      "offset": 47232,
       "scale": 0.0011281822
+    },
+    {
+      "id": "thm-mali-fermatov-teorem",
+      "taxon": "theorem",
+      "title": "Mali Fermatov teorem",
+      "teaches": [],
+      "requires": [
+        "modular-arithmetic"
+      ],
+      "depends": [],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 47616,
+      "scale": 0.0009347665
+    },
+    {
+      "id": "thm-orbita-stabilizator",
+      "taxon": "theorem",
+      "title": "Teorem orbita–stabilizator",
+      "teaches": [
+        "orbit-stabilizer-theorem"
+      ],
+      "requires": [
+        "cosets",
+        "index"
+      ],
+      "depends": [
+        "def-orbita-i-stabilizator",
+        "prp-stabilizator-je-podgrupa"
+      ],
+      "group": "Blog: Djelovanja koja broje",
+      "standalone": true,
+      "offset": 48000,
+      "scale": 0.00096521415
+    },
+    {
+      "id": "thm-uniform-maximizes-entropy",
+      "taxon": "theorem",
+      "title": "The uniform distribution maximizes entropy",
+      "teaches": [
+        "entropy"
+      ],
+      "requires": [
+        "expectation"
+      ],
+      "depends": [
+        "def-entropy"
+      ],
+      "group": "Blog: Entropy without measure theory",
+      "standalone": true,
+      "offset": 48384,
+      "scale": 0.00094268054
     }
   ]
 }

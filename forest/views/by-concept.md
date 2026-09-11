@@ -45,6 +45,11 @@ uče nove koncepte pa stoje uz svoje teoreme.
 
 - [[exr-ga-coset-action]] (exercise) — dokazi: [[prf-ga-coset-action]]
 - [[prf-ga-coset-action]] (proof)
+- [[mot-brojanje-djelovanjem]] (motivation)
+- [[def-djelovanje-grupe]] (definition)
+- [[prp-djelovanje-kao-permutacije]] (proposition) — dokazi: [[prf-djelovanje-kao-permutacije]]
+- [[exm-tri-djelovanja]] (example)
+- [[thm-burnsideova-lema]] (theorem) — dokazi: [[prf-burnsideova-lema]]
 
 ## cosets
 
@@ -74,16 +79,28 @@ uče nove koncepte pa stoje uz svoje teoreme.
 - [[prf-ga-ogrlice-mali-fermat]] (proof)
 - [[thm-ga-lagrange-djelovanje]] (theorem) — dokazi: [[prf-ga-lagrange-djelovanje]]
 - [[prf-ga-lagrange-djelovanje]] (proof)
+- [[def-orbita-i-stabilizator]] (definition)
+- [[prp-orbite-particioniraju]] (proposition) — dokazi: [[prf-orbite-particioniraju]]
+- [[prp-stabilizator-je-podgrupa]] (proposition) — dokazi: [[prf-stabilizator-je-podgrupa]]
+- [[exm-kvadrat-orbita-stabilizator]] (example)
+- [[prf-mali-fermat-ogrlice]] (proof)
+- [[thm-burnsideova-lema]] (theorem) — dokazi: [[prf-burnsideova-lema]]
+- [[prf-burnsideova-lema]] (proof)
+- [[exm-ogrlice-tri-perle]] (example)
 
 ## modular-arithmetic
 
 - [[exr-ga-ogrlice-mali-fermat]] (exercise) — dokazi: [[prf-ga-ogrlice-mali-fermat]]
 - [[prf-ga-ogrlice-mali-fermat]] (proof)
+- [[prf-mali-fermat-ogrlice]] (proof)
 
 ## orbit-stabilizer-theorem
 
 - [[exr-ga-orbits-on-cosets]] (exercise) — dokazi: [[prf-ga-orbits-on-cosets]]
 - [[prf-ga-orbits-on-cosets]] (proof)
+- [[thm-orbita-stabilizator]] (theorem) — dokazi: [[prf-orbita-stabilizator]]
+- [[prf-orbita-stabilizator]] (proof)
+- [[cor-velicina-orbite-dijeli-red]] (corollary) — dokazi: [[prf-velicina-orbite-dijeli-red]]
 
 ## lagrange
 
@@ -192,3 +209,48 @@ uče nove koncepte pa stoje uz svoje teoreme.
 - [[thm-an-cauchy-schwarz-rn]] (theorem) — dokazi: [[prf-an-cauchy-schwarz-rn]]
 - [[prf-an-cauchy-schwarz-inner-product]] (proof)
 - [[prf-an-cauchy-schwarz-rn]] (proof)
+
+## permutation-groups
+
+- [[prp-djelovanje-kao-permutacije]] (proposition) — dokazi: [[prf-djelovanje-kao-permutacije]]
+
+## conjugation
+
+- [[con-od-fiksnih-tocaka-do-jednadzbe-klasa]] (connection)
+
+## class-equation
+
+- [[con-od-fiksnih-tocaka-do-jednadzbe-klasa]] (connection)
+
+## entropy
+
+- [[mot-entropy-without-measure]] (motivation)
+- [[def-surprise]] (definition)
+- [[def-entropy]] (definition)
+- [[exm-coin-entropies]] (example)
+- [[exp-why-the-logarithm]] (exposition)
+- [[thm-entropy-additive-independent]] (theorem) — dokazi: [[prf-entropy-additive-independent]]
+- [[exm-two-fair-dice]] (example)
+- [[thm-uniform-maximizes-entropy]] (theorem) — dokazi: [[prf-uniform-maximizes-entropy]]
+- [[exp-entropy-as-a-guessing-game]] (exposition)
+
+## galois-connections
+
+- [[mot-galois-connections-beyond-galois]] (motivation)
+- [[def-galois-connection]] (definition)
+- [[prp-galois-round-trips]] (proposition) — dokazi: [[prf-galois-round-trips]]
+- [[thm-adjoints-preserve-bounds]] (theorem) — dokazi: [[prf-adjoints-preserve-bounds]]
+- [[exm-floor-ceiling-adjunction]] (example)
+- [[exm-galois-correspondence-fields]] (example)
+- [[thm-connection-induces-closure]] (theorem) — dokazi: [[prf-connection-induces-closure]]
+
+## closure-operators
+
+- [[def-closure-operator]] (definition)
+- [[thm-connection-induces-closure]] (theorem) — dokazi: [[prf-connection-induces-closure]]
+- [[exm-generated-subgroup-closure]] (example)
+
+## adjoint-functors
+
+- [[con-galois-connections-are-adjunctions]] (connection)
+- [[exm-abelianization-left-adjoint]] (example)
