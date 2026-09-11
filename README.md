@@ -10,54 +10,55 @@ behind it.
 spec; merges to `main` rebuild the site and the search index and publish
 them to <https://matsek-fer.github.io/library/>.
 
-## Kako doprinijeti
+## How to contribute
 
-1. **Kloniraj repo** i instaliraj alate:
+1. **Clone the repo** and install the tooling:
 
    ```sh
    git clone https://github.com/matsek-fer/library && cd library
    npm install
    ```
 
-2. **Napiši bundle.** Jedan artefakt = jedna mapa: `problems/<kebab-slug>/`,
-   `proofs/<kebab-slug>/` ili `blogs/<kebab-slug>/`. Format (manifest,
-   obavezne datoteke, `annotation.md` na engleskom) definiran je u
+2. **Write a bundle.** One artifact = one folder: `problems/<kebab-slug>/`,
+   `proofs/<kebab-slug>/` or `blogs/<kebab-slug>/`. The format (manifest,
+   required files, `annotation.md` in English) is defined in
    [`matsek-fer/spec` → `bundles.md`](https://github.com/matsek-fer/spec/blob/main/bundles.md) —
-   pročitaj ga prije prvog bundlea. Svaki `teaches`/`requires` id mora
-   postojati u [`concepts/concepts.yaml`](concepts/concepts.yaml); ako
-   koncept nedostaje, dodaj ga u istom PR-u.
+   read it before your first bundle. Every `teaches`/`requires` id must
+   exist in [`concepts/concepts.yaml`](concepts/concepts.yaml); if a
+   concept is missing, add it in the same PR.
 
-3. **Validiraj lokalno** (isto što će CI izvršiti):
+3. **Validate locally** (the same thing CI will run):
 
    ```sh
-   # validator živi u spec repou:
+   # the validator lives in the spec repo:
    git clone https://github.com/matsek-fer/spec ../spec
    (cd ../spec/validator && npm ci)
 
-   node ../spec/validator/bin/matsek-validate.js problems/moj-zadatak --concepts concepts/concepts.yaml
-   npm run check-math                # sva matematika mora proći KaTeX
-   SKIP_EMBED=1 npm run build        # proba izgradnje stranice
+   node ../spec/validator/bin/matsek-validate.js problems/my-problem --concepts concepts/concepts.yaml
+   npm run check-math                # every formula must pass KaTeX
+   SKIP_EMBED=1 npm run build        # trial build of the site
    ```
 
-4. **Otvori pull request.** Predložak PR-a sadrži izjavu o podrijetlu —
-   bez nje se ne merga. Maintainer pregledava i merga; merge automatski
-   objavljuje novu verziju stranice i indeksa.
+4. **Open a pull request.** The PR template contains a provenance
+   statement — nothing is merged without it. A maintainer reviews and
+   merges; the merge automatically publishes a new version of the site and
+   the index.
 
-## Iskustva
+## Experiences
 
-Osim sadržaja za učenje, knjižnica prima i **iskustva** — izvještaje
-članova o korištenju alata sekcije: što je radilo, gdje je bilo trenja,
-što bi trebalo poboljšati. Iskustvo je mapa `experiences/<kebab-slug>/` s
-jednom datotekom `experience.md` čiji YAML frontmatter nosi sve
-metapodatke (nema `manifest.json` — format je u spec-u, odjeljak
-*Experience reports*). CI ih validira kao i svaki drugi bundle.
+Besides learning material, the library accepts **experiences** — members'
+reports on using the section's tools: what worked, where there was
+friction, what should improve. An experience is a folder
+`experiences/<kebab-slug>/` with a single `experience.md` whose YAML
+frontmatter carries all the metadata (no `manifest.json` — the format is
+in the spec, section *Experience reports*). CI validates them like any
+other bundle.
 
-Iskustva su povratna informacija, ne gradivo: ne pojavljuju se u popisu
-na stranici, u indeksu pretraživanja ni u `llms-full.txt` — stranica
-prikazuje samo koliko ih je zaprimljeno. Javno se smije pojaviti samo
-iskustvo koje u frontmatteru ima `consent_public: true`; zadano je
-`false` i tada izvještaj služi isključivo maintainerima za poboljšanje
-alata.
+Experiences are feedback, not material: they do not appear in the site's
+listing, the search index or `llms-full.txt` — the site shows only how
+many were received. Only an experience whose frontmatter has
+`consent_public: true` may appear publicly; the default is `false`, and
+then the report serves maintainers alone, for improving the tools.
 
 ## The one rule that is not negotiable
 
