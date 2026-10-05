@@ -72,7 +72,7 @@ marked.use({
 // become <em>), so segments are swapped for placeholders before parsing and
 // restored — HTML-escaped, delimiters intact — for KaTeX's client-side
 // auto-render to find.
-function renderMarkdown(md) {
+function renderMarkdown(md, { inline = false } = {}) {
   const segments = extractMath(md);
   const stash = [];
   let out = md;
@@ -85,7 +85,7 @@ function renderMarkdown(md) {
     stash.push(lit);
     out = out.split(lit).join(token);
   }
-  let html = marked.parse(out);
+  let html = inline ? marked.parseInline(out) : marked.parse(out);
   stash.forEach((lit, i) => {
     html = html.split(`@@MATH${i}@@`).join(esc(lit));
   });
@@ -134,6 +134,11 @@ ul.bundles li { padding:.55rem 0; border-bottom:1px solid var(--line); }
 .relations dt { font-family:ui-monospace,monospace; font-size:.78rem; color:var(--muted);
   text-transform:uppercase; letter-spacing:.04em; }
 .relations dd { margin:.15rem 0 .9rem; }
+.structure { border-left:3px solid var(--accent); padding:.1rem .9rem; margin:0 0 1.6rem; }
+.structure p { margin:.3rem 0; }
+ul.arrows { list-style:none; padding:0; margin:.15rem 0 .9rem; }
+ul.arrows li { padding:.2rem 0; }
+ul.arrows ul { list-style:disc; padding-left:1.2rem; }
 .search input { width:100%; padding:.6rem .8rem; font:inherit; color:var(--fg);
   background:var(--bg); border:1px solid var(--line); border-radius:.5rem; }
 .search input:focus { outline:2px solid var(--accent); outline-offset:1px; }
@@ -185,7 +190,23 @@ const TAXON_LABEL_HR = {
   example: "Primjer", exercise: "Zadatak", exposition: "Izlaganje",
   motivation: "Motivacija", intuition: "Intuicija", remark: "Napomena",
   connection: "Veza", axiom: "Aksiom",
+  object: "Objekt", morphism: "Strelica",
 };
+
+/* --- forest-0.2: the structure layer, two more taxa with their own keys --- */
+
+const STRUCTURE_TAXA = new Set(["object", "morphism"]);
+// The frontmatter the structure layer adds, in the order llms-full.txt
+// prints it: what an arrow is, what it says, how it relates.
+const STRUCTURE_KEYS = [
+  "kind", "from", "to", "symbol", "hom", "statement", "label", "acts_on", "needs",
+  "on_homomorphisms", "functorial", "inverse", "generalized_by", "values", "about",
+  "fields", "same_as", "nlab",
+];
+const isArrow = (t) => t.fm.taxon === "morphism";
+// An instance has no source — its from is the reserved "pt" — so the object
+// it belongs with is the one it exemplifies.
+const anchorObject = (t) => (isArrow(t) ? (t.fm.kind === "instance" ? t.fm.to : t.fm.from) : null);
 
 // index.md is the forest's map: "## " headings with [[id]] bullets beneath
 // them, in the order the digester means them to be read. The site groups by
@@ -210,6 +231,17 @@ function forestSections(md, trees, byId) {
       current.ids.push(id);
     }
   }
+  // Arrows are not in the map by design (forest-format: index.md lists
+  // objects, never morphisms), so an unlisted arrow follows its object.
+  const attached = new Map();
+  for (const t of trees) {
+    const anchor = anchorObject(t);
+    if (!anchor || seen.has(t.id) || !seen.has(anchor)) continue;
+    if (!attached.has(anchor)) attached.set(anchor, []);
+    attached.get(anchor).push(t.id);
+    seen.add(t.id);
+  }
+  for (const s of sections) s.ids = s.ids.flatMap((id) => [id, ...(attached.get(id) ?? [])]);
   const rest = trees.filter((t) => !seen.has(t.id)).map((t) => t.id);
   if (rest.length) sections.push({ title: "Ostalo", ids: rest });
   return sections.filter((s) => s.ids.length);
@@ -279,14 +311,14 @@ function treeCountHr(n) {
 // there; on the site they become links between tree pages. A link whose
 // target is not in this forest degrades to its own text — the reader still
 // reads the sentence, which a dangling href would not give them.
-function renderTreeMarkdown(md, hrefBase) {
+function renderTreeMarkdown(md, hrefBase, options) {
   const linked = md.replace(/\[\[([^\]|#]+)(?:\|([^\]]+))?\]\]/g, (_m, target, alias) => {
     const id = String(target).trim();
     const tree = forest?.byId.get(id);
     const label = String(alias ?? tree?.fm?.title ?? id).trim();
     return tree ? `<a href="${hrefBase}${esc(id)}/">${esc(label)}</a>` : esc(label);
   });
-  return renderMarkdown(linked);
+  return renderMarkdown(linked, options);
 }
 
 // Prose only, for the landing page's search snippets: a preview wants
@@ -337,6 +369,87 @@ function treeLinks(ids, hrefBase) {
     .join(", ");
 }
 
+const titleOf = (id) => forest?.byId.get(id)?.fm?.title ?? id;
+const arrowEndsText = (t) =>
+  (t.fm.kind === "instance" ? `primjer za ${titleOf(t.fm.to)}` : `${titleOf(t.fm.from)} → ${titleOf(t.fm.to)}`);
+const subLine = (t) =>
+  `${esc(taxonLabel(t.fm.taxon))} · ${esc(t.id)}${isArrow(t) ? ` · ${esc(arrowEndsText(t))}` : ""}`;
+
+// symbol and statement are bare LaTeX by the format, so they are handed to
+// the page as display math; hom, needs, on_homomorphisms and values are
+// sentences with inline math and wikilinks, rendered like a body.
+const displayMath = (tex) => `<p>$$${esc(tex)}$$</p>`;
+const renderSentence = (md, hrefBase) => renderTreeMarkdown(String(md), hrefBase, { inline: true });
+
+const arrowsOf = (pick) => (forest?.trees ?? []).filter((x) => isArrow(x) && pick(x.fm));
+const arrowList = (arrows, hrefBase, ends) => `<ul class="arrows">${arrows.map((a) =>
+  `<li>${treeLinks([a.id], hrefBase)} <span class="sub">${esc(ends(a))}</span></li>`).join("\n")}</ul>`;
+
+function structureBlock(t, hrefBase) {
+  const fm = t.fm;
+  const rows = [];
+  if (fm.taxon === "object") {
+    if (typeof fm.symbol === "string") rows.push(displayMath(fm.symbol));
+    if (typeof fm.hom === "string") rows.push(`<p><span class="sub">Preslikavanje:</span> ${renderSentence(fm.hom, hrefBase)}</p>`);
+    if (typeof fm.nlab?.title === "string") {
+      rows.push(`<p class="sub">Prema nLab: ${esc(fm.nlab.title)}${fm.nlab.revision != null ? `, rev. ${esc(fm.nlab.revision)}` : ""}</p>`);
+    }
+  } else if (fm.taxon === "morphism") {
+    if (typeof fm.statement === "string") rows.push(displayMath(fm.statement));
+    if (Array.isArray(fm.needs) && fm.needs.length) {
+      rows.push(`<p><span class="sub">Treba još:</span> ${fm.needs.map((n) => renderSentence(n, hrefBase)).join("; ")}</p>`);
+    }
+    if (typeof fm.on_homomorphisms === "string") {
+      rows.push(`<p><span class="sub">Na preslikavanjima:</span> ${renderSentence(fm.on_homomorphisms, hrefBase)}</p>`);
+    }
+    if (typeof fm.functorial === "boolean") rows.push(`<p class="sub">${fm.functorial ? "Funktorijalna" : "Nije funktorijalna"}</p>`);
+  }
+  return rows.length ? `<div class="structure">${rows.join("\n")}</div>` : "";
+}
+
+// Everything that points along an arrow: the arrow's own ends, the arrows in
+// and out of an object, and the about edges in both directions.
+function arrowsBlock(t, hrefBase) {
+  const fm = t.fm;
+  const rows = [];
+  if (isArrow(t)) {
+    rows.push(fm.kind === "instance"
+      ? `<dt>Primjer za</dt><dd>${treeLinks([fm.to], hrefBase)}</dd>`
+      : `<dt>Iz → u</dt><dd>${treeLinks([fm.from], hrefBase)} → ${treeLinks([fm.to], hrefBase)}</dd>`);
+    if (typeof fm.inverse === "string") rows.push(`<dt>Inverz</dt><dd>${treeLinks([fm.inverse], hrefBase)}</dd>`);
+    if ((fm.generalized_by ?? []).length) rows.push(`<dt>Poopćenje</dt><dd>${treeLinks(fm.generalized_by, hrefBase)}</dd>`);
+    const special = arrowsOf((a) => (a.generalized_by ?? []).includes(t.id));
+    if (special.length) rows.push(`<dt>Poseban slučaj</dt><dd>${treeLinks(special.map((a) => a.id), hrefBase)}</dd>`);
+  }
+  if (fm.taxon === "object") {
+    const out = arrowsOf((a) => a.from === t.id);
+    const into = arrowsOf((a) => a.to === t.id && a.kind !== "instance");
+    if (out.length) rows.push(`<dt>Strelice iz objekta</dt><dd>${arrowList(out, hrefBase, (a) => `→ ${titleOf(a.fm.to)}`)}</dd>`);
+    if (into.length) rows.push(`<dt>Strelice u objekt</dt><dd>${arrowList(into, hrefBase, (a) => `← ${titleOf(a.fm.from)}`)}</dd>`);
+  }
+  if ((fm.about ?? []).length) rows.push(`<dt>Govori o</dt><dd>${treeLinks(fm.about, hrefBase)}</dd>`);
+  const about = (forest?.trees ?? []).filter((x) => (x.fm.about ?? []).includes(t.id));
+  if (about.length) rows.push(`<dt>O ovome govore</dt><dd>${treeLinks(about.map((x) => x.id), hrefBase)}</dd>`);
+  if ((fm.fields ?? []).length) {
+    rows.push(`<dt>Područja</dt><dd>${fm.fields.map((f) => `<span class="tag">${esc(f)}</span>`).join(" ")}</dd>`);
+  }
+  return rows.length ? `<div class="relations"><h2 id="strelice">Strelice</h2><dl>${rows.join("\n")}</dl></div>` : "";
+}
+
+// An object's examples are its instance arrows; each carries, in values, what
+// the arrows out of the object yield on it. The heading id stays clear of the
+// body's own "## Primjeri" section.
+function examplesBlock(t, hrefBase) {
+  if (t.fm.taxon !== "object") return "";
+  const items = arrowsOf((a) => a.kind === "instance" && a.to === t.id).map((ex) => {
+    const values = Object.entries(ex.fm.values ?? {}).map(([arrow, sentence]) =>
+      `<li>${treeLinks([arrow], hrefBase)}: ${renderSentence(sentence, hrefBase)}</li>`);
+    return `<li>${treeLinks([ex.id], hrefBase)}
+${typeof ex.fm.statement === "string" ? displayMath(ex.fm.statement) : ""}${values.length ? `<ul>${values.join("\n")}</ul>` : ""}</li>`;
+  });
+  return items.length ? `<div class="relations"><h2 id="primjeri-objekta">Primjeri</h2><ul class="arrows">${items.join("\n")}</ul></div>` : "";
+}
+
 function treeBody(t) {
   const fm = t.fm;
   const here = "../"; // sibling trees live beside this page under forest/
@@ -372,8 +485,8 @@ function treeBody(t) {
 <h1>${esc(fm.title ?? t.id)}</h1>
 <div class="meta">${meta.join("\n")}</div>
 ${prov.length ? `<div class="provenance">${prov.join("\n")}</div>` : ""}
-${stripLeadingH1(renderTreeMarkdown(t.body, here))}
-${rel.length ? `<div class="relations"><h2 id="veze">Veze</h2><dl>${rel.join("\n")}</dl></div>` : ""}`;
+${structureBlock(t, here)}${stripLeadingH1(renderTreeMarkdown(t.body, here))}
+${rel.length ? `<div class="relations"><h2 id="veze">Veze</h2><dl>${rel.join("\n")}</dl></div>` : ""}${arrowsBlock(t, here)}${examplesBlock(t, here)}`;
 }
 
 /* ---------------- zip, without a dependency ---------------- */
@@ -553,7 +666,7 @@ function bundleTreesSection(b) {
   const trees = treesByBundle.get(String(b.manifest.id)) ?? [];
   if (trees.length === 0) return "";
   const lis = trees.map((t) => `<li><a href="../../forest/${esc(t.id)}/">${esc(t.fm.title ?? t.id)}</a>
-<div class="sub">${esc(taxonLabel(t.fm.taxon))} · ${esc(t.id)}</div></li>`);
+<div class="sub">${subLine(t)}</div></li>`);
   const vault = b.type === "blog"
     ? `\n<p class="sub"><a href="${esc(path.basename(b.relDir))}-vault.zip">Preuzmi kao trezor</a>
 — stabla, <code>forest.json</code> i izvorni bundle, spremno za otvaranje u Obsidianu.</p>`
@@ -623,33 +736,51 @@ const TOOL_VERSION = JSON.parse(fs.readFileSync(path.join(root, "package.json"),
 // An export carries a slice of the forest, so edges leaving that slice have no
 // target inside the zip. Dropping them keeps the exported vault honest and
 // loadable; the dropped relationships still exist upstream, which is what the
-// index.md note points readers back to.
-function closeSubgraph(t, included) {
-  const raw = fs.readFileSync(t.file, "utf8");
-  const m = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(raw);
-  if (!m) return raw;
-  const lines = m[1].split("\n").flatMap((line) => {
-    const dep = /^depends:\s*\[(.*)\]\s*$/.exec(line);
-    if (dep) {
-      const kept = dep[1].split(",").map((s) => s.trim()).filter((s) => s && included.has(s));
-      return [`depends: [${kept.join(", ")}]`];
-    }
-    const proves = /^proves:\s*"?([^"]+)"?\s*$/.exec(line);
-    // A proof whose statement stayed behind keeps its prose but loses the
-    // anchor claim; asserting it would point at nothing.
-    if (proves && !included.has(proves[1].trim())) return [];
-    return [line];
-  });
-  const body = m[2].replace(/\[\[([^\[\]|#]+)(\|[^\]]*)?\]\]/g, (whole, target, label) =>
-    included.has(target.trim()) ? whole : (label ? label.slice(1) : target.trim()));
-  return `---\n${lines.join("\n")}\n---\n\n${body.trim()}\n`;
+// index.md note points readers back to. An arrow is an edge in its own right
+// and travels only with both of its ends — pt, the source of every instance,
+// is nowhere and so is never the missing one.
+function exportSlice(trees) {
+  const ids = new Set(trees.map((t) => t.id));
+  return trees.filter((t) => !isArrow(t)
+    || ((t.fm.from === "pt" || ids.has(t.fm.from)) && ids.has(t.fm.to)));
 }
 
-function vaultManifest(b) {
+// Keys whose values are tree ids, closed over the slice: lists keep what
+// stayed, single pointers go when their target did. A proof whose statement
+// stayed behind keeps its prose but loses the anchor claim; asserting it
+// would point at nothing.
+const ID_LIST_KEYS = ["depends", "about", "generalized_by", "acts_on"];
+const ID_KEYS = ["proves", "inverse"];
+// One line per key, collections inline, no folding of long sentences: the
+// shape the trees are written in by hand.
+const YAML_OUT = { lineWidth: -1, noRefs: true, quotingType: '"', flowLevel: 1 };
+
+function closeSubgraph(t, included) {
+  const fm = { ...t.fm };
+  for (const key of ID_LIST_KEYS) {
+    if (Array.isArray(fm[key])) fm[key] = fm[key].filter((id) => included.has(id));
+  }
+  for (const key of ID_KEYS) {
+    if (typeof fm[key] === "string" && !included.has(fm[key])) delete fm[key];
+  }
+  if (fm.values && typeof fm.values === "object") {
+    fm.values = Object.fromEntries(Object.entries(fm.values).filter(([id]) => included.has(id)));
+  }
+  const body = t.body.replace(/\[\[([^\[\]|#]+)(\|[^\]]*)?\]\]/g, (whole, target, label) =>
+    included.has(target.trim()) ? whole : (label ? label.slice(1) : target.trim()));
+  return `---\n${yaml.dump(fm, YAML_OUT)}---\n\n${body.trim()}\n`;
+}
+
+// forest-0.2 is 0.1 plus the structure layer, so a slice is stamped 0.2 only
+// when it holds something a 0.1 validator would reject.
+const vaultVersion = (trees) => (trees.some((t) =>
+  STRUCTURE_TAXA.has(t.fm.taxon) || "about" in t.fm || "fields" in t.fm) ? "forest-0.2" : "forest-0.1");
+
+function vaultManifest(b, version) {
   const created = String(b.manifest.created ?? "");
   const year = Number(created.slice(0, 4));
   return {
-    schema_version: "forest-0.1",
+    schema_version: version,
     source: {
       title: b.manifest.title,
       authors: [b.manifest.author].filter(Boolean),
@@ -668,12 +799,16 @@ function vaultManifest(b) {
   };
 }
 
-function vaultIndexMd(b, trees) {
-  const lines = trees.map((t) => `- [[${t.id}]] — ${t.fm.title ?? t.id}`);
+// Objects get the map's "## Struktura" section; arrows are left to the views,
+// which hang them on the object they leave (forest-format, index.md).
+function vaultIndexMd(b, trees, version) {
+  const bullet = (t) => `- [[${t.id}]] — ${t.fm.title ?? t.id}`;
+  const lines = trees.filter((t) => !STRUCTURE_TAXA.has(t.fm.taxon)).map(bullet);
+  const objects = trees.filter((t) => t.fm.taxon === "object").map(bullet);
   return `# ${b.manifest.title} — trezor
 
 Stabla probavljena iz bundlea \`${b.manifest.id}\` knjižnice Matematičke
-sekcije FER, u formatu Forest vault 0.1. Izvorni je bundle u
+sekcije FER, u formatu Forest vault ${version.replace(/^forest-/, "")}. Izvorni je bundle u
 \`source-bundle/\` i ostaje kanonski: stabla su izvedena iz njega.
 
 Sadržaj je pod licencom CC BY 4.0, autor: ${b.manifest.author ?? "—"}.
@@ -689,7 +824,7 @@ Za graf i pretragu pokreni jednom, uz instaliran \`forest\` dodatak:
 ## Redoslijed čitanja
 
 ${lines.join("\n")}
-`;
+${objects.length ? `\n## Struktura\n\n${objects.join("\n")}\n` : ""}`;
 }
 
 let vaultZipCount = 0;
@@ -726,13 +861,14 @@ if (forest) {
   // unzip it into Obsidian and study offline without the site.
   for (const b of bundles) {
     if (b.type !== "blog") continue;
-    const trees = treesByBundle.get(String(b.manifest.id)) ?? [];
+    const trees = exportSlice(treesByBundle.get(String(b.manifest.id)) ?? []);
     if (trees.length === 0) continue;
     const slug = path.basename(b.relDir);
     const included = new Set(trees.map((x) => x.id));
+    const version = vaultVersion(trees);
     const entries = [
-      { name: "forest.json", data: Buffer.from(JSON.stringify(vaultManifest(b), null, 2) + "\n", "utf8") },
-      { name: "index.md", data: Buffer.from(vaultIndexMd(b, trees), "utf8") },
+      { name: "forest.json", data: Buffer.from(JSON.stringify(vaultManifest(b, version), null, 2) + "\n", "utf8") },
+      { name: "index.md", data: Buffer.from(vaultIndexMd(b, trees, version), "utf8") },
       ...trees.map((t) => ({ name: `trees/${t.name}`, data: Buffer.from(closeSubgraph(t, included), "utf8") })),
       ...dirEntries(b.dir, "source-bundle/"),
     ];
@@ -749,6 +885,9 @@ if (forest) {
     teaches: t.fm.teaches ?? [],
     lang: t.fm.language ?? forest.manifest.language ?? "hr",
     snippet: snippetOf(t.body),
+    // An arrow is remembered by its ends and an object by its symbol.
+    ...(isArrow(t) ? { ends: arrowEndsText(t) } : {}),
+    ...(typeof t.fm.symbol === "string" ? { symbol: t.fm.symbol } : {}),
   }));
   // "<" is escaped so no tree body can close the data island early.
   const embedJson = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
@@ -776,7 +915,7 @@ if (forest) {
     var d = data[i];
     d.hayTitle = fold(d.title + " " + d.id);
     d.hay = d.hayTitle + " " + fold((LABEL[d.taxon] || d.taxon) + " "
-      + d.teaches.join(" ") + " " + d.snippet);
+      + d.teaches.join(" ") + " " + (d.ends || "") + " " + (d.symbol || "") + " " + d.snippet);
   }
   var input = document.getElementById("q");
   var out = document.getElementById("qresults");
@@ -804,6 +943,7 @@ if (forest) {
     var sub = document.createElement("div");
     sub.className = "sub";
     sub.textContent = (LABEL[d.taxon] || d.taxon) + " · " + d.id
+      + (d.ends ? " · " + d.ends : "")
       + (d.teaches.length ? " · " + d.teaches.join(", ") : "");
     li.appendChild(sub);
     if (d.snippet) {
@@ -845,7 +985,7 @@ if (forest) {
     const lis = s.ids.map((id) => {
       const t = forest.byId.get(id);
       return `<li><a href="${esc(id)}/">${esc(t.fm.title ?? id)}</a>
-<div class="sub">${esc(taxonLabel(t.fm.taxon))} · ${esc(id)}</div></li>`;
+<div class="sub">${subLine(t)}</div></li>`;
     });
     return `<h2 id="${anchorOf(s.title)}">${esc(s.title)}</h2>
 <ul class="bundles">
@@ -979,9 +1119,14 @@ requires: [${(m.requires ?? []).join(", ")}]${m.difficulty != null ? `\ndifficul
 
 // The trees follow the bundles in the same delimiter style. An agent reading
 // only this file still sees the DAG: depends/proves name tree ids, and
-// digested_from names the bundle a few sections above.
+// digested_from names the bundle a few sections above. The structure keys
+// follow in the same key: value form, so from/to/about read like depends.
 if (forest) {
   const line = (label, value) => (value == null || value === "" ? "" : `\n${label}: ${value}`);
+  const structureLines = (fm) => {
+    const present = STRUCTURE_KEYS.filter((k) => k in fm);
+    return present.length ? `\n${yaml.dump(Object.fromEntries(present.map((k) => [k, fm[k]])), YAML_OUT).trimEnd()}` : "";
+  };
   for (const t of forest.trees) {
     const fm = t.fm;
     llms += `
@@ -994,7 +1139,7 @@ language: ${fm.language ?? forest.manifest.language ?? ""}
 teaches: [${(fm.teaches ?? []).join(", ")}]
 requires: [${(fm.requires ?? []).join(", ")}]
 depends: [${(fm.depends ?? []).join(", ")}]${line("proves", fm.proves)}${line("digested_from", fm.digested_from)}${line("adapted_from", fm.adapted_from)}
-standalone: ${fm.standalone === true}${fm.x_annotation ? `\n\n----- ${t.id} x_annotation -----\n${String(fm.x_annotation).trim()}` : ""}
+standalone: ${fm.standalone === true}${structureLines(fm)}${fm.x_annotation ? `\n\n----- ${t.id} x_annotation -----\n${String(fm.x_annotation).trim()}` : ""}
 
 ----- forest/trees/${t.name} -----
 ${t.body.trim()}

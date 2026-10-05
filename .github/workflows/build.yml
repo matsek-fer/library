@@ -35,6 +35,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: matsek-fer/reader
+          # Pinned to a release, not main: the validator must not change under the library between its own commits.
+          ref: v0.7.0
           path: reader-checkout
 
       - uses: actions/setup-node@v4
