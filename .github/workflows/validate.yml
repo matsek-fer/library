@@ -55,8 +55,9 @@ jobs:
           done
           [ "$found" = "1" ] || echo "No bundles yet - nothing to validate."
 
-      - name: LaTeX renders
-        run: npm --prefix reader-checkout ci --omit=optional >/dev/null 2>&1 || npm --prefix reader-checkout install >/dev/null 2>&1
+      - name: Forest, consent and LaTeX checks
+        run: |
+          npm --prefix reader-checkout ci --omit=optional >/dev/null 2>&1 || npm --prefix reader-checkout install >/dev/null 2>&1
           node reader-checkout/scripts/validate-forest.mjs forest --concepts concepts/concepts.yaml
           node scripts/check-consent.mjs && node scripts/check-math.mjs
 
